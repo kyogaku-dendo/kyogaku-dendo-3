@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Welcome to 驚額の殿堂3（スリー）</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="人間系学系棟前で、圧倒的な低価格で美味しいフランクフルトを提供します！" />
+    <meta name="keywords" content="雙峰祭, フランクフルト, 驚額の殿堂">
+    <meta name="viewport" content="width=700">
+    <link href="./style.css" rel="stylesheet">
+    <script src="./script.js"></script>
+
+    <style>
+
+        body {
+            font-family:Verdana, Geneva, sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #717171;
+        }
+
+        #enter {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        }
+
+        #enter .legend {
+            font-size:1.2em;
+            margin-bottom: 12px;
+        }
+
+        #enter {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        }
+    </style>
+
+    <script>
+        window.addEventListener("load", () => {
+            const enter = document.getElementById("enter");
+            enter.addEventListener("click", () => {
+                enter.remove();
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- ヘッダここから -->
+      <header id="header">
+      </header>
+      <!-- ヘッダここまで -->
+
+      <!-- メインここから -->
+      <main id="main">
+          
+      </main>
+      <!-- メインここまで -->
+      
+      <!-- フッタここから -->
+      <footer id="footer">
+        Copyright (C) 2025 驚額の殿堂
+      </footer>
+      <!-- フッタここまで -->
+    </div>
+
+    <!-- エンターここから -->
+    <div id="enter">
+
+      <div class="container">
+        <header>
+          <img src="./ia-logo.gif" alt="ロゴ">
+          <h2>統一認証システム (Unified Authentication System)</h2>
+        </header>
+
+        <div class="content">
+          <div class="column one">
+
+              <div class="legend">
+                ログインサービス: 驚額殿堂のbananaサービス
+              </div>
+                        
+              <div class="form-element-wrapper">
+                <label for="username">ユーザーID (user id)</label>
+                <input class="form-element form-field" id="username" name="j_username" type="text" value="">
+                (<a style="color:#00f">NPTS-13</a> or <a style="color:#00f">NPTS-NAME</a>)
+              </div>
+
+              <div class="form-element-wrapper">
+                <label for="password">パスワード (password)</label>
+                <input class="form-element form-field" id="password" name="j_password" type="password" value="">
+              </div>
+
+              <div class="form-element-wrapper">
+                <label for="donotcache">
+                  <span>
+                    驚額殿堂
+                      [驚額殿堂のbananaサービス]
+                    <br> 
+                  </span>
+                </label>
+              </div>
+
+            </form>
+
+			
+            驚額殿堂のbananaサービス（販促支援アプリケーション）
+            
+          </div>
+          <div class="column two">
+            <ul class="list list-help">
+              <li>
+                このページをブックマークしてください．
+              </li>
+              <li>
+                (Please bookmark this page.)
+              </li>
+              <li>
+                <span style="font-size: x-small">
+                  このページに移行した後のURLをブックマークするようにしてください．
+                </span>
+              </li>
+              <li>
+                <span style="font-size: x-small">
+                  (Please bookmark  URL after jumping to this page.)
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- エンターここまで -->
+  </body>
+</html>
