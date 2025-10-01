@@ -52,11 +52,14 @@
 
     <script>
         window.addEventListener("load", () => {
-            const enter = document.getElementById("enter");
-            enter.addEventListener("click", () => {
-                enter.remove();
-            });
+        const enter = document.getElementById("enter");
+        const loginBtn = document.querySelector("button[name='_eventId_proceed']");
+
+        loginBtn.addEventListener("click", () => {
+            // ボタンを押したら表示を消す
+            enter.remove();
         });
+    });
     </script>
   </head>
   <body>
@@ -84,8 +87,8 @@
 
       <div class="container">
         <header>
-          <img src="./ia-logo.gif" alt="ロゴ">
-          <h2>統一認証システム (Unified Authentication System)</h2>
+          <img src="./logo.png" alt="ロゴ">
+          <h2>フランクフルトシステム (Frankfurt System)</h2>
         </header>
 
         <div class="content">
@@ -97,13 +100,23 @@
                         
               <div class="form-element-wrapper">
                 <label for="username">ユーザーID (user id)</label>
-                <input class="form-element form-field" id="username" name="j_username" type="text" value="">
+                <input class="form-element form-field" 
+                id="username" 
+                name="j_username" 
+                type="text" 
+                value="2025/11/1~2025/11/3" 
+                disabled>
                 (<a style="color:#00f">NPTS-13</a> or <a style="color:#00f">NPTS-NAME</a>)
               </div>
 
               <div class="form-element-wrapper">
                 <label for="password">パスワード (password)</label>
-                <input class="form-element form-field" id="password" name="j_password" type="password" value="">
+                <input class="form-element form-field" 
+                id="password" 
+                name="j_password" 
+                type="text" 
+                value="驚額の殿堂3(スリー)" 
+                disabled>
               </div>
 
               <div class="form-element-wrapper">
@@ -116,11 +129,14 @@
                 </label>
               </div>
 
+              <div class="form-element-wrapper">
+                <button class="form-element form-button" type="submit" name="_eventId_proceed" onclick="this.childNodes[0].nodeValue='ログインしています…'">Login</button>
+              </div>
+
             </form>
 
-			
             驚額殿堂のbananaサービス（販促支援アプリケーション）
-            
+        
           </div>
           <div class="column two">
             <ul class="list list-help">
