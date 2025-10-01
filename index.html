@@ -149,9 +149,6 @@
         if (enter && loginBtn) {
           loginBtn.addEventListener("click", (e) => {
             e.preventDefault();
-
-            loginBtn.textContent = "ログインしています…";
-
             enter.remove();
           }, { once: true });
         }
@@ -229,8 +226,8 @@
             <ul class="list list-help">
               <li>このページをブックマークしてください．</li>
               <li>(Please bookmark this page.)</li>
-              <li><span style="font-size: x-small">このページに移行した後のURLをブックマークするようにしてください</span></li>
-              <li><span style="font-size: x-small">(Please bookmark URL after jumping to this page.)</span></li>
+              <li>このページに移行した後のURLをブックマークするようにしてください</li>
+              <li>(Please bookmark URL after jumping to this page.)</li>
             </ul>
           </div>
         </div>
