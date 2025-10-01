@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ページタイトル -->
+    <title>manaba - home (コピーサイト)</title>
+    
+    <!-- ファビコン・アイコン設定 -->
+    <link rel="apple-touch-icon" href="">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    
+    <!-- スタイルシート読み込み -->
+    <link rel="stylesheet" href="./manaba - home_files/browser_std.css" type="text/css">
+    <link rel="stylesheet" href="./manaba - home_files/portal.css" type="text/css">
+    <link rel="stylesheet" href="./manaba - home_files/fontsize_m.css" type="text/css">
+    <link rel="stylesheet" href="./manaba - home_files/color_1.css" type="text/css">
+    
+    <!-- JavaScriptライブラリ読み込み -->
+    <script src="./manaba - home_files/d3.min.js" type="text/javascript"></script>
+    <script src="./manaba - home_files/webat.js" type="text/javascript"></script>
+    <script src="./manaba - home_files/manaba.js" type="text/javascript"></script>
+    <script src="./manaba - home_files/MathJax.js" type="text/javascript"></script>
+    
+    <style type="text/css">
+        /* ===========================
+           カスタムスタイル
+           =========================== */
+        
+        /* ボタンスタイル */
+        input[type="button"],
+        input[type="submit"],
+        input[type="reset"] {
+            cursor: pointer;
+            color: #323232;
+            text-decoration: none;
+            padding: 3px 10px;
+            background: linear-gradient(to bottom, #ffffff 0%, #f8f8f8 40%, #e2e2e2 95%, #ffffff);
+            border-radius: 4px;
+            border: 1px solid #929292;
+            min-height: 25px;
+        }
+        
+        input[type="button"]:hover,
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background: #e3e3e3;
+        }
+        
+        /* ページトップに戻るボタンのアニメーション */
+        @keyframes fadein {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeout {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        #to-top-button.to-top-button {
+            display: block;
+        }
+        
+        #to-top-button.to-top-button.fade-out {
+            animation: fadeout 1s linear 0s;
+        }
+        
+        #to-top-button.to-top-button.fade-in {
+            animation: fadein 1s linear 0s;
+        }
+        
+        #to-top-button.to-top-button.invisible {
+            display: none;
+        }
+    </style>
+    
+    <script>
+        /* ===========================
+           トップに戻るボタンの制御
+           =========================== */
+        var syncerTimeout = null;
+        
+        function updateToTopButton(element) {
+            // レスポンシブモードでない場合は非表示
+            if (!document.body.classList.contains("responsive")) {
+                element.classList.add("invisible");
+                return;
+            }
+            
+            // 1秒ごとに処理
+            if (syncerTimeout == null) {
+                syncerTimeout = setTimeout(function () {
+                    var visible = !element.classList.contains("invisible");
+                    var now = document.documentElement.scrollTop || document.body.scrollTop || window.scrollY;
+                    var under = document.body.clientHeight - (now + document.documentElement.clientHeight);
+                    
+                    // スクロール位置が500px以上の場合、ボタンを表示
+                    if (now > 500) {
+                        if (!visible) {
+                            element.classList.add("fade-in");
+                            element.classList.remove("invisible");
+                            setTimeout(function(){
+                                element.classList.remove("fade-in");
+                            }, 1000);
+                        }
+                    } else {
+                        if (visible) {
+                            element.classList.add("fade-out");
+                            setTimeout(function(){
+                                element.classList.remove("fade-out");
+                                element.classList.add("invisible");
+                            }, 1000);
+                        }
+                    }
+                    
+                    syncerTimeout = null;
+                }, 1000);
+            }
+        }
+        
+        // ページ読み込み完了時の処理
+        document.addEventListener("DOMContentLoaded", function () {
+            var element = document.querySelector('#to-top-button');
+            if (element) {
+                element.classList.add("to-top-button");
+                element.classList.add("invisible");
+                
+                // スクロールイベント監視
+                window.addEventListener('scroll', function() { 
+                    updateToTopButton(element); 
+                });
+                
+                // クリックでトップにスムーズスクロール
+                element.onclick = function () {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    </script>
+</head>
+
+<body onload="OnLoadHandler();FocusOnLoad();" class="queryformV2">
+    
+    <!-- ===========================
+         SVGパターン定義（コースカードの背景用）
+         =========================== -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <!-- コースごとに異なる色のパターンを定義 -->
+            <pattern id="fillpat1" patternUnits="userSpaceOnUse" width="16" height="16">
+                <rect fill="#80AA00" x="0" y="0" width="16" height="16"></rect>
+                <g font-family="sans-serif" font-size="8" fill="white">
+                    <text x="4" y="8" text-anchor="middle">1</text>
+                    <text x="12" y="16" text-anchor="middle">1</text>
+                </g>
+            </pattern>
+            <!-- 他のパターンも同様に定義... -->
+        </defs>
+    </svg>
+    
+    <!-- ===========================
+         メインコンテナ
+         =========================== -->
+    <div id="container" class="home">
+        
+        <!-- ===========================
+             ヘッダー部分
+             =========================== -->
+        <div id="header">
+            <!-- 組織ヘッダー（学校ロゴなど） -->
+            <div id="orgheader">
+                <div></div>
+            </div>
+            
+            <!-- マイボタンメニュー（メモ一覧、responへのリンクなど） -->
+            <div id="mybutton-menu">
+                <a href="">
+                    <img src="./manaba - home_files/button_memolist_header-ja.gif" 
+                         alt="メモ一覧" 
+                         title="メモ一覧">
+                </a>
+                <a href="https://atmnb.tsukuba.ac.jp/attend/tsukuba?relogin=1" target="_blank">
+                    <img src="./manaba - home_files/respon8.png" 
+                         alt="respon" 
+                         title="respon" 
+                         style="height: 23px; padding-right: 16px">
+                </a>
+            </div>
+            
+            <!-- 言語切り替え -->
+            <div id="mylang" class="mylang-ja">
+                <a>English</a>
+            </div>
+            
+            <hr>
+            
+            <!-- 共通メッセージ -->
+            <div id="header-common-message">※自己登録許可期間中</div>
+            
+            <!-- ユーザー情報エリア -->
+            <div id="myheader" style="width:650px">
+                <span id="mylinks-mydate">2025-10-01 (Wed)</span><br>
+                <div id="mylinks">
+                    <span id="screenname">
+                        <a href="">んぽたそ</a>
+                    </span>
+                    <span class="mylinks-sep">|</span>
+                    <span id="mylinks-preferences">
+                        <a href="">設定</a>
+                    </span>
+                    <span class="mylinks-sep">|</span>
+                    <span id="mylinks-logout">
+                        <a href="" 
+                           onclick="alert('ログアウトするには、ブラウザを閉じてください。');return false;">
+                            ログアウト
+                        </a>
+                    </span>
+                </div>
+                <!-- プロフィール画像 -->
+                <img src="./manaba - home_files/user_3743733_profileimage" 
+                     width="40" height="40" alt="" title="">
+            </div>
+            
+            <!-- ===========================
+                 レスポンシブ用ヘッダー（スマホ・タブレット対応）
+                 =========================== -->
+            <div class="responsive-myheader">
+                <div class="title" style="font-size: 18px; top: 12px;">
+                    <a href="" style="color:#fff">manaba</a>
+                </div>
+                <!-- ハンバーガーメニューボタン -->
+                <div style="position: absolute; right: 5px; top: 5px;" class="header-menu-button">
+                    <span></span>
+                </div>
+                
+                <!-- レスポンシブメニュー内容 -->
+                <div id="header-menuv2" class="responsive-header-menu">
+                    <ul>
+                        <li>
+                            <!-- ユーザープロフィール -->
+                            <table class="top-prof">
+                                <tr>
+                                    <th style="padding: 0 10px;" width="33%">
+                                        <img src="./manaba - home_files/user_3743733_profileimage" 
+                                             width="40" height="40" alt="" 
+                                             style="border:1px solid #ababab">
+                                    </th>
+                                    <td><b>んぽたそ</b></td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li class="current">
+                            <a href="">マイページ</a>
+                        </li>
+                        <li>
+                            <a href="">コース</a>
+                        </li>
+                        <li>
+                            <a href="">メモ一覧</a>
+                        </li>
+                        <li>
+                            <a href="">English</a>
+                        </li>
+                        <li>
+                            <a href="">設定</a>
+                        </li>
+                        <li>
+                            <a class="manual-link" 
+                               href="" 
+                               target="_blank">
+                                <img src="./manaba - home_files/marker-download02.gif" 
+                                     class="inline" alt="">マニュアル
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">ログアウト</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- ===========================
+                 レスポンシブナビゲーション
+                 =========================== -->
+            <div class="responsive-mynavi">
+                <div class="top-menu">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <span class="top-menu-icon">
+                                    <img src="./manaba - home_files/svg_icon_mycourse.svg" 
+                                         width="25" height="25">
+                                </span>
+                                <span>コース</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="top-menu-icon">
+                                    <img src="./manaba - home_files/svg_icon_portfolio.svg" 
+                                         width="25" height="25">
+                                </span>
+                                <span>ポートフォリオ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="top-menu-icon">
+                                    <img src="./manaba - home_files/svg_icon_tests.svg" 
+                                         width="25" height="25">
+                                </span>
+                                <span>未提出課題</span>
+                            </a>
+                            <!-- 未読数バッジ -->
+                            <span class="my-unreadcount">8</span>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="top-menu-icon">
+                                    <img src="./manaba - home_files/svg_icon_exam.svg" 
+                                         width="25" height="25">
+                                </span>
+                                <span>提出記録</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="top-menu-icon">
+                                    <img src="./manaba - home_files/svg_icon_myreminder.svg" 
+                                         width="25" height="25">
+                                </span>
+                                <span>リマインダ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#h3-self-registration">
+                                <span class="top-menu-icon">
+                                    <img src="./manaba - home_files/svg_icon_preview_contents.svg" 
+                                         width="25" height="25">
+                                </span>
+                                <span>自己登録</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://atmnb.tsukuba.ac.jp/attend/tsukuba?relogin=1" 
+                               target="_blank">
+                                <span class="top-menu-icon">
+                                    <img src="./manaba - home_files/respon-minilogo.png" 
+                                         alt="respon" 
+                                         style="height: 25px;">
+                                </span>
+                                <span>respon</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- ===========================
+                 デスクトップ用ナビゲーション
+                 =========================== -->
+            <div id="mynavi">
+                <div class="mynavi-button-home">
+                    <a href="">
+                        <img id="mypagelogo" 
+                             src="./manaba - home_files/button_mynavi_mypage-ja1.gif" 
+                             class="linkimage" 
+                             alt="マイページ" 
+                             title="マイページ">
+                    </a>
+                </div>
+                <div class="mynavi-button-course">
+                    <a href="">
+                        <img src="./manaba - home_files/button_mynavi_course-ja1.gif" 
+                             alt="コース" 
+                             title="コース">
+                    </a>
+                </div>
+                <div class="mynavi-button-portfolio">
+                    <a href="">
+                        <img src="./manaba - home_files/button_mynavi_portfolio-ja1.gif" 
+                             alt="ポートフォリオ" 
+                             title="ポートフォリオ">
+                    </a>
+                </div>
+                <div class="align"><span></span></div>
+            </div>
+        </div>
+        
+        <!-- ===========================
+             ページボディ
+             =========================== -->
+        <div class="pagebody">
+            
+            <!-- ===========================
+                 ページヘッダー（コース情報表示部）
+                 =========================== -->
+            <div class="pageheader-course pageheader-courseV2 pageheader-course-s pageheader-course-sV2 pageheader-library">
+                <div>
+                    <!-- コースアイコン -->
+                    <div class="pageheader-course-courseicon">
+                        <img src="./manaba - home_files/user_3743733_profileimage" 
+                             style="width:50px;height:50px;">
+                    </div>
+                    
+                    <!-- コース名 -->
+                    <div class="pageheader-course-coursename">
+                        <a href="">
+                            んぽたそさんのマイページ
+                        </a>
+                    </div>
+                    
+                    <!-- コースメニュー -->
+                    <div class="course-menu library-menu">
+                        <div class="library-menu-top">
+                            <div>
+                                <a href="">
+                                    <img src="./manaba - home_files/button_totop-ja1-in.png" 
+                                         class="inline" 
+                                         alt="トップ" 
+                                         title="トップ">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="library-menu-course"></div>
+                        <div class="library-menu-unsubmitted">
+                            <div>
+                                <a href="">
+                                    <img src="./manaba - home_files/button_unsubmitted-ja1.png" 
+                                         class="inline" 
+                                         alt="未提出の課題一覧" 
+                                         title="未提出の課題一覧">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="library-menu-reminder">
+                            <div>
+                                <a href="">
+                                    <img src="./manaba - home_files/button_reminderlist-ja1.png" 
+                                         class="inline" 
+                                         alt="リマインダ" 
+                                         title="リマインダ">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ===========================
+                 マイコース表示エリア
+                 =========================== -->
+            <div class="my-course my-courseV2">
+                
+                <!-- メモ機能 -->
+                <div class="memo coursememo" id="coursememo">
+                    <a href="#" target="_blank">
+                        <img class="memobutton" 
+                             src="./manaba - home_files/icon-memoedit-ja.gif" 
+                             alt="メモ追加" 
+                             title="メモ追加">
+                    </a>
+                    <span class="memo_text"></span>
+                </div>
+                <div class="align"><span></span></div>
+                
+                <!-- アラート表示 -->
+                <div class="alertlist">
+                    <div>
+                        <a href="">
+                            ポートフォリオにコレクションが追加されました。
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- ===========================
+                     左カラム（メインコンテンツ）
+                     =========================== -->
+                <div class="contentbody-left">
+                    
+                    <!-- ===========================
+                         お知らせセクション
+                         =========================== -->
+                    <div class="my-infolist my-infolist-centernews">
+                        <div class="my-infolist-header">
+                            <h2>お知らせ</h2>
+                        </div>
+                        <div class="my-infolist-body">
+                            <table>
+                                <tbody>
+                                    <!-- お知らせアイテム1 -->
+                                    <tr>
+                                        <td width="15%">2025-08-21</td>
+                                        <td>
+                                            <div class="news-title newsentry unread">
+                                                <img src="./manaba - home_files/icon_coursenews_on.png">
+                                                <a href="#" title="【教職員のみ】manabaの利用者アンケートご協力のお願い">
+                                                    【教職員のみ】manabaの利用者アンケートご協力のお願い
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- お知らせアイテム2 -->
+                                    <tr>
+                                        <td width="15%">2025-04-14</td>
+                                        <td>
+                                            <div class="news-title newsentry unread">
+                                                <img src="./manaba - home_files/icon_coursenews_on.png">
+                                                <a href="#" title="responアプリPC用へ誘導するサイトにご注意ください">
+                                                    "responアプリPC用" へ誘導するサイトにご注意ください
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- お知らせアイテム3 -->
+                                    <tr>
+                                        <td width="15%">2025-03-28</td>
+                                        <td>
+                                            <div class="news-title newsentry unread">
+                                                <img src="./manaba - home_files/icon_coursenews_on.png">
+                                                <a href="#" title="2025年度manabaオンライン講習会のお知らせ">
+                                                    【教職員のみ】2025年度manabaオンライン講習会のお知らせ
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- お知らせアイテム4 -->
+                                    <tr>
+                                        <td width="15%">2024-05-17</td>
+                                        <td>
+                                            <div class="news-title newsentry unread">
+                                                <img src="./manaba - home_files/icon_coursenews_on.png">
+                                                <a href="#" title="manabaのマニュアルについて">
+                                                    manabaのマニュアルについて / User manuals for manaba
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- ===========================
+                         コース一覧セクション
+                         =========================== -->
+                    <div class="my-infolist my-infolist-mycourses">
+                        <div class="my-infolist-header">
+                            <h2>コース一覧</h2>
+                        </div>
+                        
+                        <!-- フィルター選択 -->
+                        <div class="showmore" style="padding-bottom:5px;height:auto;margin-top: -5px;">
+                            <select name="select">
+                                <option value="home_?chglistformat=thumbnail" selected>現在のコース</option>
+                                <option value="home__past?chglistformat=thumbnail">過去のコース</option>
+                                <option value="home__upcoming?chglistformat=thumbnail">これからのコース</option>
+                                <option value="home__all?chglistformat=thumbnail">すべてのコース</option>
+                            </select>
+                            <select name="select">
+                                <option value="home_?chglistformat=thumbnail">すべての年度</option>
+                                <option value="home___y2025?chglistformat=thumbnail">2025年度</option>
+                                <option value="home___y2024?chglistformat=thumbnail">2024年度</option>
+                                <option value="home___y2023?chglistformat=thumbnail">2023年度</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 表示形式切り替えタブ -->
+                        <ul class="infolist-tab" style="margin-bottom:10px">
+                            <li class="current">
+                                <a href="#">サムネイル</a>
+                            </li>
+                            <li>
+                                <a href="#">リスト</a>
+                            </li>
+                        </ul>
+                        
+                        <!-- ===========================
+                             コースカード表示エリア
+                             =========================== -->
+                        <div class="mycourses-body">
+                            <div class="section">
+                                
+                                <!-- コースカード1: INFOSS情報倫理 -->
+                                <div class="coursecard coursecard-c coursecardV2">
+                                    <div>
+                                        <!-- コース画像 -->
+                                        <div class="course-card-img">
+                                            <img src="./manaba - home_files/00.gif" 
+                                                 alt="INFOSS情報倫理学生用コース">
+                                        </div>
+                                        
+                                        <!-- コース情報 -->
+                                        <div class="course-card-title course-card-titleV2" style="top:4px">
+                                            <div class="coursecode">infoss2017S</div>
+                                            <a href="#" title="INFOSS情報倫理学生用コース" style="width:215px;">
+                                                INFOSS情報倫理学生用コース
+                                            </a>
+                                            <dl compact class="courseitems">
+                                                <dt class="courseitemtext courseitemtext-date" style="display:none">時限</dt>
+                                                <dd class="courseitemdetail courseitemdetail-date">
+                                                    2017&nbsp;&nbsp;<span title=""></span>
+                                                </dd>
+                                                <dt class="courseitemtext">担当</dt>
+                                                <dd class="courseitemdetail" title="情報環境機構">
+                                                    情報環境機構
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                        
+                                        <!-- お気に入りボタン -->
+                                        <div class="course-card-fav">
+                                            <a href="#">
+                                                <img src="./manaba - home_files/icon_clip_off.png" 
+                                                     alt="よく使うコースに登録" 
+                                                     title="よく使うコースに登録">
+                                            </a>
+                                        </div>
+                                        
+                                        <!-- 外部リンク -->
+                                        <div class="coursecard-extlink">
+                                            <div class="mediasite-cldetail"></div>
+                                            <div class="calink-cldetail">
+                                                <a href="#" target="_blank">
+                                                    <img src="./manaba - home_files/icon_link_movie.png" 
+                                                         class="inline" 
+                                                         alt="movie">movie
+                                                </a>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- コースステータス（未読情報など） -->
+                                        <div class="course-card-status" style="width:125px">
+                                            <img src="./manaba - home_files/icon_coursenews_on.png" 
+                                                 alt="未読のニュースがあります。" 
+                                                 title="未読のニュースがあります。">
+                                            <img src="./manaba - home_files/icon-coursedeadline-on.png" 
+                                                 alt="未提出の課題があります。" 
+                                                 title="未提出の課題があります。">
+                                            <img src="./manaba - home_files/icon-coursegrad-off.png">
+                                            <img src="./manaba - home_files/icon_coursethread_on.png" 
+                                                 alt="掲示板に未読のコメントがあります。" 
+                                                 title="掲示板に未読のコメントがあります。">
+                                            <img src="./manaba - home_files/icon_collist_individual-off.png">
+                                        </div>
+                                    </div>
+                                    <div class="align"><span></span></div>
+                                </div>
+                                
+                                <!-- コースカード2: 研究倫理 -->
+                                <div class="coursecard coursecard-c coursecardV2">
+                                    <div>
+                                        <div class="course-card-img">
+                                            <img src="./manaba - home_files/00(1).gif" alt="研究倫理">
+                                        </div>
+                                        <div class="course-card-title course-card-titleV2" style="top:4px">
+                                            <div class="coursecode">0A00103</div>
+                                            <a href="#" title="研究倫理" style="width:215px;">研究倫理</a>
+                                            <dl compact class="courseitems">
+                                                <dd class="courseitemdetail courseitemdetail-date">
+                                                    2025&nbsp;&nbsp;<span title="春BC 他0">春BC 他0</span>
+                                                </dd>
+                                                <dt class="courseitemtext">担当</dt>
+                                                <dd class="courseitemdetail">岡林 浩嗣、大須賀 壮</dd>
+                                            </dl>
+                                        </div>
+                                        <div class="course-card-fav">
+                                            <a href="#">
+                                                <img src="./manaba - home_files/icon_clip_off.png" 
+                                                     alt="よく使うコースに登録">
+                                            </a>
+                                        </div>
+                                        <div class="coursecard-extlink">
+                                            <div class="calink-cldetail">
+                                                <a href="#" target="_blank">
+                                                    <img src="./manaba - home_files/icon_link_movie.png" 
+                                                         class="inline">movie
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="course-card-status" style="width:125px">
+                                            <img src="./manaba - home_files/icon_coursenews_off.png">
+                                            <img src="./manaba - home_files/icon-coursedeadline-off.png">
+                                            <img src="./manaba - home_files/icon-coursegrad-off.png">
+                                            <img src="./manaba - home_files/icon_coursethread_off.png">
+                                            <img src="./manaba - home_files/icon_collist_individual-off.png">
+                                        </div>
+                                    </div>
+                                    <div class="align"><span></span></div>
+                                </div>
+                                
+                                <!-- コースカード3: 生命倫理学 -->
+                                <div class="coursecard coursecard-c coursecardV2">
+                                    <div>
+                                        <div class="course-card-img">
+                                            <img src="./manaba - home_files/00(2).gif" alt="生命倫理学">
+                                        </div>
+                                        <div class="course-card-title course-card-titleV2" style="top:4px">
+                                            <div class="coursecode">0A00104</div>
+                                            <a href="#" title="生命倫理学" style="width:215px;">生命倫理学</a>
+                                            <dl compact class="courseitems">
+                                                <dd class="courseitemdetail courseitemdetail-date">
+                                                    2025&nbsp;&nbsp;<span title="春C 金5,6">春C 金5,6</span>
+                                                </dd>
+                                                <dt class="courseitemtext">担当</dt>
+                                                <dd class="courseitemdetail">
+                                                    野口 恵美子、川崎 彰子、我妻 ゆき子、杉山 文博、他
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                        <div class="course-card-fav">
+                                            <a href="#">
+                                                <img src="./manaba - home_files/icon_clip_off.png">
+                                            </a>
+                                        </div>
+                                        <div class="coursecard-extlink">
+                                            <div class="calink-cldetail">
+                                                <a href="#" target="_blank">
+                                                    <img src="./manaba - home_files/icon_link_movie.png" 
+                                                         class="inline">movie
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="course-card-status" style="width:125px">
+                                            <img src="./manaba - home_files/icon_coursenews_off.png">
+                                            <img src="./manaba - home_files/icon-coursedeadline-off.png">
+                                            <img src="./manaba - home_files/icon-coursegrad-off.png">
+                                            <img src="./manaba - home_files/icon_coursethread_off.png">
+                                            <img src="./manaba - home_files/icon_collist_individual-off.png">
+                                        </div>
+                                    </div>
+                                    <div class="align"><span></span></div>
+                                </div>
+                                
+                                <!-- 他のコースカードも同様に追加可能 -->
+                                <!-- ... -->
+                                
+                                <div class="align"><span></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- 左カラム終了 -->
+                
+                <!-- ===========================
+                     右カラム（サイドバー）
+                     =========================== -->
+                <div class="contentbody-right">
+                    
+                    <!-- ===========================
+                         課題セクション
+                         =========================== -->
+                    <div class="my-infolist my-infolist-event my-infolist-submitlog">
+                        <div class="my-infolist-header">
+                            <h2>課題</h2>
+                        </div>
+                        
+                        <!-- 未提出課題 -->
+                        <div class="my-infolist-body">
+                            <h3>未提出課題</h3>
+                            <div class="showmore">
+                                <img src="./manaba - home_files/icon_mypage_showmore.png" class="inline">
+                                &nbsp;<a href="#">未提出課題一覧</a>
+                            </div>
+                        </div>
+                        
+                        <!-- 提出記録 -->
+                        <div class="my-infolist-body">
+                            <h3>提出記録</h3>
+                            <div class="eventlist">
+                                <p style="padding:5px">最近の提出記録はありません</p>
+                                <div class="showmore">
+                                    <img src="./manaba - home_files/icon_mypage_showmore.png" class="inline">
+                                    &nbsp;<a href="#">すべて表示</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ===========================
+                         Tips/ヘルプセクション
+                         =========================== -->
+                    <div class="my-infolist my-infolist-tips">
+                        <div class="my-infolist-header"></div>
+                        <div class="my-infolist-body">
+                            <ul class="tips-list">
+                                <li>
+                                    <h3 id="h3-self-registration">自己登録について</h3>
+                                    <div class="newslist">
+                                        <div class="newsentry">
+                                            <p style="width: 100%">
+                                            <div style="padding:3px 0 0 0">
+                                                履修登録が確定する前にコースを利用したい場合は、自己登録を行ってください。<br>
+                                                自己登録許可期間終了後、教務システムに履修登録を行わなかったコースは利用できなくなることがあります。
+                                                <div style="text-align:right;padding:3px 10px 3px 0">
+                                                    <a href="#">
+                                                        <img class="inline" 
+                                                             src="./manaba - home_files/icon_mypage_showmore.png">
+                                                        &nbsp;コースを検索して登録
+                                                    </a><br>
+                                                    <a href="#">
+                                                        <img class="inline" 
+                                                             src="./manaba - home_files/icon_mypage_showmore.png">
+                                                        &nbsp;登録キーを用いて登録
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="align"><span></span></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- 右カラム終了 -->
+                
+                <div class="align"><span></span></div>
+            </div>
+            
+        </div>
+        <!-- ページボディ終了 -->
+        
+        <!-- ===========================
+             フッター
+             =========================== -->
+        <div class="pagefooter pagefooterV2 pagefooterV3">
+            <div class="footer-manual-link">
+                <a class="manual-link" href="#" target="_blank">
+                    <img src="./manaba - home_files/marker-download02.gif" class="inline">
+                    マニュアル
+                </a>
+                <a class="personaldata-link" href="#" target="_blank">
+                    <img src="./manaba - home_files/icon_personaldata.png" class="inline">
+                    パーソナルデータについて
+                </a>
+            </div>
+            <div id="systemversion" style="text-align:left;padding-left:5px;width:200px;">
+                manaba 2.978 (コピーサイト)
+            </div>
+        </div>
+        
+        <!-- ===========================
+             トップに戻るボタン
+             =========================== -->
+        <div class="to-top">
+            <span id="to-top-button" class="to-top-button invisible">▲</span>
+        </div>
+        
+    </div>
+    <!-- メインコンテナ終了 -->
+    
+</body>
+</html>
+
