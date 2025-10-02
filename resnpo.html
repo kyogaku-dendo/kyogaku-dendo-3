@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+  <head>
+    <title>resnpo(レスンポ)</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="焼きそばホグワーツの出席管理ツール" />
+    <meta name="keywords" content="雙峰祭, フランクフルト, 驚額の殿堂,resnpo">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./style.css" rel="stylesheet">
+    <script src="./script.js"></script>
+
+    <style>
+        body{
+            background-color: #cccccc;
+            font-size: 15px;
+            font-family: 'ヒラギノ角ゴ Pro W3', 'Arial', 'メイリオ', Verdana, 'ＭＳ Ｐゴシック', sans-serif;
+            color: #453e30;
+            margin: 0;
+        }
+
+        .container{
+            background-color: #fff;
+            max-width: 512px; 
+            margin: 0 auto;
+        }
+
+        .header .school{
+            background-color: #f3b200;
+            color: #FFFFFF;
+            font-size: 15px;
+            font-weight: bold;
+            height: 30px;
+            line-height: 30px;
+            margin: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .header .option{
+            background-color: #ededed;
+            font-size: 0.7em;
+            padding: 3px;
+            text-align: right;
+        }
+
+        .main{
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .form{
+            padding: 5%;  
+        }
+
+        .main .form-text{
+            text-align: center;
+            margin: 0px auto; 
+            width: 100%; 
+            font-size: 28px;
+            border-radius: 5px;
+            border: 2px solid #f08200;
+            outline: none; 
+        }
+        .main input::placeholder {
+            color: #cfcfcf; 
+        }
+
+        .main .button-orange {
+            background: #f3b200;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 22px;
+            font-weight: bold;
+            width: 70%;
+            padding: 5px 100px;
+            margin-top:5%;
+        }
+
+        .dotted-line {
+            width: 90%;
+            border: none;
+            border-top: 1px dotted #555; /* 上だけ点線 */
+            margin: auto;
+        }
+
+        .resnpo-img{
+            margin-top: 20px;
+        }
+
+        .apps-button{
+            margin: 0 auto;
+            width: 50%;
+            background-color: #face20;
+            border-radius: 5px;
+            border-color: 5px solid #f3b200;
+            color: #fff;
+            display: flex;
+            align-items: center;  
+            gap: 10px;    
+            text-align: center;
+        }
+
+        .app-icon{
+            margin-left: 5px;
+            border-radius: 10px;
+            border-color: #f08200;
+            
+        }
+
+        .footer {
+            background-color: #ededed;
+            font-size: 80%;
+            text-align: center;
+            width: 100%;
+            border-top: 2px solid #cdcdcd;
+        }
+
+        .footer p{
+            margin-top: -1px;
+        }
+    </style>
+
+    <script>
+        function showMessage() {
+        alert("何もないんぽ~");
+        }
+  </script>
+  </head>
+  <body>
+   <div class="container">
+    <div class="header">
+        <h1 class="school">焼きそばホグワーツ</h1>
+        <div class="option"><font color="#009AF3">English</font> | <font color="#009AF3">スマホ</font></div>
+    </div>
+    <div class="main">
+        <div class="form">
+            <input type="text"  name="code" class="form-text" id="form-text" value="" placeholder="9桁の番号を入力">
+            <button class="button-orange" onclick="showMessage()">GO</button>
+        </div>
+
+        <hr class="dotted-line">
+        
+        <div class="apps">
+            <img class="resnpo-img" src="./images/resnpo.png" alt="resnpo" height="100px">
+            <p>アプリ未設定の方は</p>
+            <div class="apps-button">
+                <img class="app-icon" src="./images/npo_orange.png" alt="App-icon" width="40px">
+                <p>resnpoアプリをダウンロード</p>
+            </div>
+            <p>アプリに設定するサーバは<br><font size="4" >https://<b><font color="#ff0000">kyogaku.yokohama.dev/</font></b></font></p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© 2025 驚額の殿堂. All rights reserved.</p>
+    </div>
+
+   </div>
+  </body>
+</html>
