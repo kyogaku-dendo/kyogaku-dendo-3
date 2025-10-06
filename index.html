@@ -149,22 +149,15 @@
 
         if (enter && loginBtn) {
           loginBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            enter.remove();
+            e.preventDefault();        
+            enter.remove();     
+            window.location.href = "./banana-home.html";
           }, { once: true });
         }
       });
     </script>
   </head>
   <body>
-    <div id="wrapper">
-      <header id="header"></header>
-      <main id="main"></main>
-      <footer id="footer">
-        Copyright (C) 2025 驚額の殿堂
-      </footer>
-    </div>
-
     <!-- エンターここから -->
     <div id="enter" role="dialog" aria-modal="true" aria-label="ログインダイアログ">
       <div class="container">
