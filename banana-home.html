@@ -111,7 +111,6 @@
 
         /*コンテンツここから*/
         .content{
-            height:100vh;
             border: 1px solid #ddd;
         }
 
@@ -146,7 +145,7 @@
             background: linear-gradient(#7cc41a,#55a308);
         }
 
-        .corses{
+        .courses{
             color: #444;
             text-decoration: none;
             height: 100%;
@@ -159,7 +158,7 @@
             text-align: center;
             margin: auto 0;
         }
-        .corses:hover{
+        .courses:hover{
             color: #55a308;
             background: linear-gradient(#f9fdf2,#cce4a5);
         }
@@ -202,8 +201,397 @@
             color: #2449a8;
             background: linear-gradient(#fff,#eee);
         }
+
+        .middle-bar{
+            display: flex;
+            align-items: center;
+            background: linear-gradient(#fff, #f0f0f0);
+            height:65px; 
+            border-bottom: 6px double #ddd;
+        }
+
+        .middle-bar-icon{
+            margin-left: 30px;
+            margin-right: 10px;
+        }
+
+        .middle-bar-contents{
+            height:100%;
+        }
+
+        .middle-bar-my-page{
+            color:#0000dd;
+            display: flex;
+            font-size: 16px;
+            text-decoration: none;
+            margin-top: 8px;
+        }
+        .middle-bar-my-page:hover{
+            text-decoration:underline;
+        }
+
+        .middle-bar-button-container{
+            display: flex;
+        }
+        .middle-bar-button{
+            background: linear-gradient(#fff, #eee);
+            color:#333;
+            font-size: 11px;
+            font-weight:bold;
+            display: flex;
+            height:28px;
+            width: 85px;
+            border: 1px solid #ddd;
+            margin-top:4px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 6px double #ddd;
+            box-shadow: 0 0px 1px rgba(0, 0, 0, 0.3);
+        }
+
+        .middle-bar-button-container .selected{
+            background: linear-gradient(#fff, #dcefbb);
+            color:#4d9d20;
+            border-bottom: 4px solid #94cc36;
+        }
+        .middle-bar-button:hover{
+            background: linear-gradient(#fff, #dcefbb);
+            color:#4d9d20;
+            border-bottom: 4px solid #94cc36;
+        }
+        .middle-bar-button-gap{
+            margin-left:10px;
+        }
+
+        .memo-bar{
+            height:40px;
+        }
+        .memo{
+            background-color: #a9a9a9;
+            border-radius: 2px;
+            font-size: 10px;
+            color: #fff;
+            width:40px;
+            margin: 5px 10px 0 auto;
+            text-align: center;
+        }
+        .attention{
+            font-weight: bold;
+            color: #f00;
+            margin-left: 20px;
+            padding-bottom: 10px;
+        }
+
+        .main-grid{
+            display: flex;
+        }
+
+        .main-grid-left{
+            width: 75%;
+        }
+
+        .message-container{
+            width:95%;
+            height:120px;
+            margin: 0 auto 20px auto;
+        }
+
+        .news-label{
+            height:28px;
+            font-weight: bold;
+            border: 1px solid #94cc36;
+            margin: 0 auto;
+        }
+        .news-label p{
+            margin: 2px;
+            font-weight: bold;
+            background: linear-gradient(#dcefbb,#fff);
+            padding-top: 3px;
+            padding-left: 10px;
+        }
+        .news-item{
+            display: flex;
+        }
+
+        .news {
+        width: 95%;
+        margin: 0 auto;
+        font-size: 12px;
+        }
+
+        .news-item {
+        padding: 6px 0;
+        border-bottom: 1px dotted #ddd;
+        cursor: pointer;
+        }
+
+        .news-date {
+        margin-right: 40px;
+        }
+
+        .news-title {
+        color: #2449a8;
+        font-weight: bold;
+        }
+
+        .news-title:hover {
+        text-decoration: underline;
+        }
+
+        /* === モーダル（ミニウィンドウ） === */
+        .news-modal {
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        }
+
+        .news-modal-content {
+        background: #c9e99b;
+        border-radius: 6px;
+        width: 600px;
+        max-width: 90%;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        animation: fadeIn 0.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+        from {opacity: 0; transform: scale(0.9);}
+        to {opacity: 1; transform: scale(1);}
+        }
+
+        .news-modal-close {
+            width:60px;
+            display: flex;
+            background: linear-gradient(#fff, #dcefbb);
+            border: 1px solid #94cc36;
+            border-radius: 2px;
+            margin: 10px auto;
+            font-size: 12px;
+            color: #555;
+            cursor: pointer;
+            box-shadow: 0 0px 1px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            padding-left: 20px;
+        }
+
+        .news-modal-close:hover {
+            background: linear-gradient(#f9fdf2,#cce4a5);
+        }
+
+
+        .news-modal-header{
+            height: 40px;
+            margin-top: 40px;
+            margin-left: 5px;
+            margin-right: 5px;
+            display: flex;
+            background-color: #fff;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .news-modal h3 {
+        text-align: center;
+        padding-left: 10px;
+
+        }
+
+        .news-modal span {
+            text-align: center;
+            padding-right: 10px;
+        }
+
+        .modal-body{
+            margin-left: 5px;
+            margin-right: 5px;
+            height: 400px;
+            background-color: #fff;
+            justify-content: space-between;
+            align-items: center;
+            padding-top:40px;
+            padding-left: 30px;
+        }
+
+
+
+        .course-container{
+            width:95%;
+            margin: 0 auto 20px auto;
+        }
+
+        .course-label, .works-label{
+            height: 30px;
+            border: 1px solid #94cc36;
+            background-color: #dcefbb;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .course-label p,.works-label p{
+            margin: 2px;
+            font-weight: bold;
+            padding-top: 3px;
+            padding-left: 10px;
+        }
+
+        .course-change-container{
+            height: 35px;
+            border-bottom:1px solid #94cc36 ;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .course-change-container1{
+            display: flex;
+        }
+
+        .course-change-button{
+            height: 20px;
+            padding-left: 15px;
+            padding-right: 15px;
+            border: 1px solid #aaa;
+            border-bottom: none;
+            color: #aaa;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            margin-right: 10px;
+            padding-top: 4px;
+            margin-top: 10px;
+        }
+        .course-change-button:hover{
+            color: #529C09;
+        }
+
+        .course-change-container1 .selected{
+            border: 1px solid #94cc36;
+            background: linear-gradient(#dcefbb,#fff);
+            color: #529C09;
+            font-weight: bold;
+            border-bottom: 1px solid #fff;
+        }
+
+        .course-change-container2{
+            margin: auto 0;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 10px;   
+            width:95%;
+            margin: 0 auto 20px auto;              
+        }
+
+        .course-card {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 8px;
+            padding: 10px;
+            border: 1px dotted #7cc41a;
+            border-left: 4px solid #7cc41a;
+            background: #fff;
+            box-shadow: 0 1px 2px rgba(0,0,0,.06);
+        }
+        .course-card .labels{
+            margin-top: -4px;
+        }
+
+        .course-card .code { 
+            font-size: 11px; 
+            color:#888; 
+            margin-bottom: -3px;
+        }
+        .course-card .title { 
+            font-size: 16px; 
+            color:#2449a8; 
+            text-decoration: none;
+            display: flex;
+            padding-bottom: 12px;
+        }
+        .course-card .meta { 
+            font-size: 12px; color:#000; 
+        }
+
+        .main-grid-right{
+            width: 25%;
+        }
+
+        .works-container{
+            width: 95%;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .works-box{
+            border: 1px solid #7cc41a;
+            border-top: none;
+        }
+
+        .works-box-menu{
+            border-bottom: 1px dotted #7cc41a;
+        }
+
+        .works-box-label{
+            display: flex;
+            height: 34px;
+            padding-left: 4px;
+            font-weight: bold;
+            align-items: center;
+        }
+
+        .works-link{
+            color:#2449a8; 
+            text-decoration: none;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            margin-right: 20px;
+        }
+
+        .toroku-container{
+            width: 95%;
+            border: 1px solid #7cc41a;
+            border-top: 4px solid #7cc41a;
+            padding-bottom: 20px;
+        }
+
+        .toroku-label{
+            display: flex;
+            height: 40px;
+            padding-left: 4px;
+            font-weight: bold;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .toroku-container p{
+            width: 95%;
+            margin: auto;
+        }
+
+        .toroku-link{
+            color:#2449a8; 
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            margin-right: 20px;
+        }
+
+
         /*コンテンツここまで*/
     </style>
+
   </head>
   <body>
     <div class="main">
@@ -233,9 +621,9 @@
         <div class="content">
             <div class="top-bar">
                 <div class="top-bar1">
-                    <a class="my-page" href="./banana-home.html">マイページ</a>
-                    <a class="corses" href="./banana-home.html">コース</a>
-                    <a class="corses" href="./banana-home.html">ポートフォリオ</a>
+                    <div class="my-page">マイページ</div>
+                    <div class="courses">コース</div>
+                    <div class="courses">ポートフォリオ</div>
                 </div>
                 <div class="top-bar2">
                     <a href="./resnpo.html"><img class="resnpo" src="./images/resnpo_logo2.png" alt="resnpo" height="20"/></a>
@@ -243,6 +631,156 @@
                     <div class="top-bar2-box">English</div>
                 </div>
 
+            </div>
+            <div class ="middle-bar">
+                <div class="middle-bar-icon"><img src="./images/npo_user.png" alt="ロゴ" height="50"/></div>
+                <div class="middle-bar-contents">
+                    <div class="middle-bar-my-page"><!--ここに人数 --></div>
+                    <div class="middle-bar-button-container">
+                        <div class="middle-bar-button selected">トップ</div>
+                        <div class="middle-bar-button-gap"></div>
+                        <div class="middle-bar-button">未提出課題</div>
+                        <div class="middle-bar-button">リマインダ</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="memo-bar">
+                <div class="memo">メモ</div>
+            </div>
+            <div class="attention-var">
+                <div class="attention">ポートフォリオにコレクションが追加されました。</div>
+            </div>
+            <div class="main-grid">
+                <div class="main-grid-left">
+                    <!-- ニュース -->
+                    <div class="message-container">
+                        <div class="news-label"><p>お知らせ</p></div>
+                        <div class="news">
+                            <div class="news-item"
+                              data-date="2025-10-07"
+                              data-content="驚額の殿堂 3（スリー）は今年もフランクフルトをうるんぽ！">
+                              <span class="news-date">2025-10-07</span>
+                              <span class="news-title">今年も雙峰祭でるんぽ！</span>
+                            </div>
+                          
+                            <div class="news-item"
+                              data-date="2025-10-07"
+                              data-content="予備1Text">
+                              <span class="news-date">2025-10-07</span>
+                              <span class="news-title">予備1</span>
+                            </div>
+                          
+                            <div class="news-item"
+                              data-date="2025-10-07"
+                              data-content="予備2Text">
+                              <span class="news-date">2025-10-07</span>
+                              <span class="news-title">予備2</span>
+                            </div>
+                            
+                            <!-- モーダルウィンドウ -->
+                            <div class="news-modal" id="news-modal">
+                                <div class="news-modal-content">
+                                  <div class="news-modal-header">
+                                    <h3 id="modal-title"></h3>
+                                    <span id="modal-date"></span>
+                                  </div>
+                                  <div id="modal-body" class="modal-body"></div>
+                                  <div class="news-modal-close"><font color="#4d9d20">&times;</font>  閉じる</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- コース -->
+                    <div class="course-container">
+                        <div class="course-label"><p>コース一覧</p></div>
+                        <div class="course-change-container">
+                            <div class="course-change-container1">
+                                <div class="course-change-button selected">サムネイル</div>
+                                <div class="course-change-button">リスト</div>
+                            </div>
+                            <div class="course-change-container2">
+                                <select name="courses" id="courses-select">
+                                    <option value="">現在のコース</option>
+                                    <option value="past">過去のコース</option>
+                                    <option value="future">これからのコース</option>
+                                    <option value="all">全てのコース</option>
+                                  </select>
+                                  <select name="years" id="year-select">
+                                    <option value="">すべての年度</option>
+                                    <option value="2025">2025年度</option>
+                                    <option value="2024">2024年度</option>
+                                    <option value="2023">2023年度</option>
+                                  </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="courses-grid">
+                        <article class="course-card">
+                            <img src="./images/kyogaku-2024.png" alt="kyogaku-web2024" width="60">
+                            <div class="labels">
+                              <div class="code">NPTS24</div>
+                              <a class="title" href="https://kyogaku.yokohama.dev/2024">昨年のページ</a>
+                              <div class="meta">2024　秋 <br><font color="#555">担当</font> 驚額の殿堂2(ツー)</div>
+                              <div class="meta"><span class="badge"><font color="##2449a8">movie</font></span></div>
+                            </div>
+                        </article>
+                        <article class="course-card">
+                            <img src="./images/kyogaku-2023.png" alt="kyogaku-web2023" width="60">
+                            <div class="labels">
+                              <div class="code">NPTS23</div>
+                              <a class="title" href="https://kyogaku.yokohama.dev/2024">一昨年のページ</a>
+                              <div class="meta">2023　秋 <br><font color="#555">担当</font> 驚額の殿堂</div>
+                              <div class="meta"><span class="badge"><font color="##2449a8">movie</font></span></div>
+                            </div>
+                        </article>
+                        <article class="course-card">
+                            <img src="./images/kyogaku-2024.png" alt="kyogaku-web2024" width="60">
+                            <div class="labels">
+                              <div class="code">NPTS24</div>
+                              <a class="title" href="https://kyogaku.yokohama.dev/2024">昨年のページ</a>
+                              <div class="meta">2024　秋 <br><font color="#555">担当</font> 驚額の殿堂2(ツー)</div>
+                              <div class="meta"><span class="badge"><font color="##2449a8">movie</font></span></div>
+                            </div>
+                        </article>
+                        <article class="course-card">
+                            <img src="./images/kyogaku-2023.png" alt="kyogaku-web2023" width="60">
+                            <div class="labels">
+                              <div class="code">NPTS23</div>
+                              <a class="title" href="https://kyogaku.yokohama.dev/2024">一昨年のページ</a>
+                              <div class="meta">2023　秋 <br><font color="#555">担当</font> 驚額の殿堂</div>
+                              <div class="meta"><span class="badge"><font color="##2449a8">movie</font></span></div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <!-- 右側 -->
+                <div class="main-grid-right">
+                    <div class="works-container">
+                        <div class="works-label">
+                            <p>課題</p>
+                        </div>
+                        <div class="works-box">
+                            <div  class="works-box-menu">
+                                <div class="works-box-label"> <font color="#c9e99b">&#9670; </font> 未提出課題</div>
+                            </div>
+                            <div class="works-link">＞ 未提出課題一覧</div>
+                        </div>
+                        <div class="works-box">
+                            <div  class="works-box-menu">
+                                <div class="works-box-label"> <font color="#c9e99b">&#9670; </font>  提出記録</div>
+                            </div>
+                            <div class="works-link">＞ 全て表示</div>
+                        </div>
+                    </div>
+                    <div class="toroku-container">
+                        <div class="toroku-label"> <font color="#c9e99b">&#9670; </font>  自己登録について</div>
+                        <p>履修登録が確定する前にコースを利用したい場合は、自己登録を行ってください。<br>
+                            自己登録許可期間終了後、教務システムに履修登録を行わなかったコースは利用できなくなることがあります。</p>
+                            <div class="toroku-link">＞ コースを検索して登録</div>
+                            <div class="toroku-link">＞登録キーを用いて登録</div>
+                    </div>
+                </div>
             </div>
         </div>
     <!-- コンテンツここまで -->
@@ -268,17 +806,64 @@
     </div>
     
     <script>
+        // アクセスカウンタのフェッチ
+        const fetchAccessCounter = async () => {
+            const url = "https://renbai-counter.yokohama.dev/counter";
+            try {
+            const request = await fetch(url);
+            return (await request.json()).count;
+            } catch {
+            return null;
+            }
+        };
+
+        // 日付の表示
         const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         const now = new Date();
-
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, "0");
         const date = String(now.getDate()).padStart(2, "0");
         const day = weekdays[now.getDay()];
-
         const formattedDate = `${year}-${month}-${date} (${day})`;
-
         document.getElementById("now-date").textContent = formattedDate;
+
+        // アクセスカウンタを middle-bar-my-page の中に表示
+        (async () => {
+            const count = await fetchAccessCounter();
+            if (count !== null) {
+            const el = document.querySelector(".middle-bar-my-page");
+            const span = document.createElement("span");
+            span.textContent = `${count}人目さんのマイページ`;
+            el.insertAdjacentElement("beforeend", span); 
+            }
+        })();
+        
+
+        //お知らせ
+        const modal = document.getElementById("news-modal");
+        const modalTitle = document.getElementById("modal-title");
+        const modalDate = document.getElementById("modal-date");
+        const modalBody = document.getElementById("modal-body");
+        const closeBtn = document.querySelector(".news-modal-close");
+
+        // ニュースタイトルクリックでモーダルを開く
+        document.querySelectorAll(".news-item").forEach(item => {
+        item.addEventListener("click", () => {
+            const title = item.querySelector(".news-title").textContent;
+            const content = item.dataset.content;
+            const date = item.dataset.date;
+
+            modalTitle.textContent = title;
+            modalDate.textContent = date;
+            modalBody.textContent = content;
+
+            modal.style.display = "flex";
+        });
+        });
+
+        closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+        });
     </script>
   </body>
 </html>
