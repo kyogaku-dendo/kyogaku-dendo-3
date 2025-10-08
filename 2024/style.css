@@ -1,0 +1,90 @@
+@font-face {
+  font-family: "JFドットAyu明朝18";
+  src: url("JF-Dot-AyuMin18.ttf");
+}
+
+html, body {
+  width: 100%;
+  color: #fff;
+  line-height: 1;
+  font-family: "ＭＳ Ｐゴシック", "Osaka", sans-serif;
+  margin: 0;
+  background: url("img/haikei.gif");
+  background-size: 40px;
+  display: flex;
+  background: #000;
+}
+
+a {
+  cursor: pointer;
+}
+
+h1 {
+  margin: 0;
+}
+
+h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin: 4px;
+}
+
+#wrapper {
+  width: 700px;
+  margin: auto;
+  padding: 24px 0;
+  overflow: hidden;
+}
+
+#header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#plane {
+  color: blue;
+}
+
+#access-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#access-counter-no {
+  margin: 0 4px;
+}
+
+@media screen and (max-width: 900px) {
+  #nav {
+    display: none;
+  }
+
+  main {
+    margin-left: 0;
+  }
+}
+
+#footer {
+  color: yellow;
+  text-align: left;
+  margin-top: 16px;
+  animation: footer-marquee 5s linear infinite;
+}
+
+@keyframes footer-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(calc(100% - 210px));
+  }
+}
