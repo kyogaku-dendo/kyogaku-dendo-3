@@ -1,0 +1,446 @@
+<!doctype html>
+<html>
+  <head>
+    <title>banana(バナナ)-home</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="焼きそばホグワーツの教育支援システム" />
+    <meta name="keywords" content="雙峰祭, フランクフルト, 驚額の殿堂,banana">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./style.css" rel="stylesheet">
+    <script src="./script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        body{
+            background-color: #fff;
+            font-size: 12px;
+            font-family: 'ヒラギノ角ゴ Pro W3', 'Arial', 'メイリオ', Verdana, 'ＭＳ Ｐゴシック', sans-serif;
+            color: #000;
+            margin: 0;
+        }
+
+        .main{
+            width: 950px;
+            margin: 0 auto;
+        }
+
+        .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;  
+        }
+
+        .header1 {
+            text-align: center;
+        }
+        .header2 {
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            align-items: center; 
+        }
+
+        .kikan-date{
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            align-items: right;  
+        }
+
+        .toroku-kikan{
+            color:#f00;
+            font-size: 12px;
+            padding-right: 40px;
+        }
+
+        .now-date{
+            color:#555;
+            font-size: 12px;
+        }
+
+        .header-conf{
+            display: flex;
+            font-size: 12px;
+            color: #0000dd;
+            justify-content: flex-end;
+        }
+        .text-border{
+            border: 1px solid #aaa;
+            height: 14px;
+            margin: auto 10px;
+        }
+
+        .header-icon{
+            padding: 5px;
+        }
+
+        /*フッターここから*/
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;  
+        }
+
+        .footer1 {
+            display: flex;
+            align-items: end;
+        }
+
+        .ver-rights{
+            justify-content: space-between;
+            align-items: center; 
+            color: #aaa;
+            font-size: 12px;
+            text-align: left;
+        }
+        .copy-right{
+            font-size: 10px;
+        }
+        .footer-text{
+            color: #0000dd;
+        }
+        .footer2 {
+            display: flex;
+            color: #aaa;
+            font-size: 12px;
+            align-items: center;
+        }
+        /*フッターここまで*/
+        
+
+        /*コンテンツここから*/
+        .content{
+            border: 1px solid #ddd;
+        }
+
+        .top-bar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(#fff, #ddd);
+            height:29px; 
+            border-bottom: 4px solid #55a308; 
+            font-weight: bold;
+        }
+
+        .top-bar1{
+            display: flex;
+            height: 100%;
+        }
+
+        .my-page{
+            height: 60%;
+            color:#fff;
+            background-color: #55a308;
+            padding: 4px 12px 5px 12px;
+            text-decoration: none;
+            border-start-start-radius: 3px;
+            border-start-end-radius: 3px;
+            margin:3px 10px auto 10px;
+            box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .my-page:hover{
+            background: linear-gradient(#7cc41a,#55a308);
+        }
+
+        .courses{
+            color: #666;
+            text-decoration: none;
+            height: 100%;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            width:120px;
+            display: flex;             
+            justify-content: center;    
+            align-items: center;        
+            text-align: center;
+            margin: auto 0;
+        }
+
+        .course-selected{
+            color: #55a308;
+            background: linear-gradient(#f9fdf2,#cce4a5);
+        }
+        .courses:hover{
+            color: #55a308;
+            background: linear-gradient(#f9fdf2,#cce4a5);
+        }
+
+
+        .top-bar2{
+            display: flex;             
+            justify-content: center;    
+            align-items: center;        
+            text-align: center;
+        }
+
+        .resnpo{
+            background-color: #fff;
+            padding-left: 8px;
+            padding-right: 8px;
+            border-radius: 3px;
+            border: 1px solid #f08301;
+            margin-top: 2px;
+            margin-right: 20px;
+        }
+        .resnpo:hover{
+            background-color: #fff2bb;
+        }
+
+        .top-bar2-box{
+            display: flex;             
+            justify-content: center;    
+            align-items: center;        
+            text-align: center;
+            width:80px;
+            height:20px;
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            color:#777;
+            margin-right:10px;
+        }
+
+        .top-bar2-box:hover{
+            color: #2449a8;
+            background: linear-gradient(#fff,#eee);
+        }
+
+        .middle-bar{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            background: linear-gradient(#fff, #f0f0f0);
+            height:100px; 
+            border-bottom: 6px double #ddd;
+        }
+
+        .middle-bar-icon{
+            margin-left: 30px;
+            margin-right: 10px;
+            margin-top: -16px;
+            border: 2px solid #aaa;
+        }
+
+        .middle-bar-contents{
+            height:100%;
+            width: 100%;
+        }
+
+        .course-meta{
+            display: flex;
+            justify-content: space-between;
+            height: 55%;
+        }
+
+        .middle-bar-course-number{
+            color:#aaa;
+            font-size: 11px;
+        }
+
+        .middle-bar-course-name{
+            color:#0000dd;
+            display: flex;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .middle-bar-course-name:hover{
+            text-decoration:underline;
+        }
+
+
+        .course-meta2{
+            display: flex;
+        }
+
+        .course-meta2-movie{
+            border-right: 3px solid #ddd;
+            padding-right: 60px;
+            padding-top: 10px;
+            font-size: 13px; color:#000; 
+        }
+
+        .course-meta2-desc{
+            margin: 10px 20px auto 10px;
+            align-items: baseline;
+            font-size: 12px; color:#111; 
+        }
+
+        .middle-bar-button-container{
+            margin-top:12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .middle-bar-button-container1 ,.middle-bar-button-container2{
+            display: flex;
+            justify-content: space-between;
+            margin-right :30px;
+        }
+        .middle-bar-button, .middle-bar-button2{
+            background: linear-gradient(#fff, #eee);
+            color:#333;
+            font-size: 11px;
+            font-weight:bold;
+            display: flex;
+            height:24px;
+            border: 1px solid #ddd;
+            margin-top:8px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 6px double #ddd;
+            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+
+        .middle-bar-button{
+            width: 85px;
+        }
+        .middle-bar-button2{
+            width: 130px;
+        }
+
+
+        .middle-bar-button-container .selected{
+            background: linear-gradient(#fff, #dcefbb);
+            color:#4d9d20;
+            border-bottom: 4px solid #94cc36;
+        }
+        .middle-bar-button:hover,.middle-bar-button2:hover {
+            background: linear-gradient(#fff, #dcefbb);
+            color:#4d9d20;
+            border-bottom: 4px solid #94cc36;
+        }
+
+        .middle-bar-button2:hover i{
+            color:#4d9d20;
+        }
+
+        .middle-bar-button-gap{
+            margin-left:10px;
+        }
+
+        .galley-container img{
+            border: 1px solid #aaa;
+        }
+
+        /*コンテンツここまで*/
+    </style>
+
+  </head>
+  <body>
+    <div class="main">
+    <!-- ヘッダーここから -->
+        <div class="header">
+            <div class="header1"><img src="./images/logo2.png" alt="ロゴ" height="60"/></div>
+            <div class="header2">
+                <div class="header-text">
+                    <div class="kikan-date">
+                        <div class="toroku-kikan">※自己登録許可期間中んぽ</div>
+                        <div class="now-date" id="now-date"></div>
+                    </div>
+                    <div class="header-conf">
+                        んぽたそ
+                        <div class="text-border"></div>
+                        設定
+                        <div class="text-border"></div>
+                        ログアウト
+                    </div>
+                </div>
+                <div class="header-icon"><img src="./images/npo_user.png" alt="ロゴ" height="45"/></div>
+            </div>
+        </div>
+    <!-- ヘッダーここまで -->
+
+    <!-- コンテンツここから -->
+        <div class="content">
+            <div class="top-bar">
+                <div class="top-bar1">
+                    <div class="my-page"><i class="fa-solid fa-user"></i>マイページ</div>
+                    <div class="courses course-selected"><i class="fa-solid fa-chalkboard-user"></i>　コース</div>
+                    <div class="courses"><font size="+1"><i class="fa-solid fa-newspaper"></i></font>　ポートフォリオ</div>
+                </div>
+                <div class="top-bar2">
+                    <a href="./resnpo.html"><img class="resnpo" src="./images/resnpo_logo2.png" alt="resnpo" height="20"/></a>
+                    <div class="top-bar2-box"><i class="fa-solid fa-file-pen"></i>メモ一覧</div>
+                    <div class="top-bar2-box">English</div>
+                </div>
+
+            </div>
+            <div class ="middle-bar">
+                <div class="middle-bar-icon"><img src="./images/NPTS.png" alt="empty_image" height="50"/></div>
+                <div class="middle-bar-contents">
+                    <div class="course-meta">
+                        <div class="course-meta1">
+                            <div class="middle-bar-course-number">GALLERY</div>
+                            <div class="middle-bar-course-name">ギャラリー</div>
+                        </div>
+                        <div class="course-meta2">
+                            <div class="course-meta2-movie">
+                                    <font color="#94cc36"><i class="fa-regular fa-circle-play"></i></font>
+                                    <span class="badge"><font color="##2449a8">movie</font></span>
+                            </div>
+                            <div class="course-meta2-desc">
+                                <div class="course-meta2-desc-text">担当: 驚額の殿堂3（スリー）</div>
+                                <div class="course-meta2-desc-text">2025 秋</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="middle-bar-button-container">
+                        <div class="middle-bar-button-container1">
+                            <div class="middle-bar-button">小テスト</div>
+                            <div class="middle-bar-button">アンケート</div>
+                            <div class="middle-bar-button">レポート</div>
+                            <div class="middle-bar-button">プロジェクト</div>
+                            <div class="middle-bar-button">成　績</div>
+                        </div>
+                        <div class="middle-bar-button-container2">
+                            <div class="middle-bar-button2"><font size="+1"color="#ddd"><i class="fa-solid fa-comments"></i></font>　掲示板</div>
+                            <div class="middle-bar-button2"><font size="+1"color="#ddd"><i class="fa-solid fa-book-open"></i></font>　コースコンテンツ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="galley-container">
+                <img src="./images/logo1.png" alt="logo1" width="100%">
+                <img src="./images/resnpo_logo2.png" alt="resnpo_logo2" width="100%">
+                <img src="./images/npo_purple.png" alt="npo_purple" width="100%">
+            </div>
+        </div>
+    <!-- コンテンツここまで -->
+
+
+
+    <!-- フッターここから -->
+    <div class="footer">
+        <div class="footer1">
+            <div class="ver-rights">
+                <div class="banana-version">banana 3.141592</div>
+                <div class="copy-right">Copyright (C) 2025 驚額の殿堂</div>
+            </div>
+            <div class="footer-text">マニュアル パーソナルデータについて</div>
+        </div>
+        
+        <div class="footer2">
+            powerd by 
+            <div class="footer-icon"><img src="./images/logo3.png" alt="ロゴ2" height="45"/></div>
+        </div>
+    </div>
+    <!-- フッターここまで -->
+    </div>
+    
+    <script>
+        // 日付の表示
+        const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+        const date = String(now.getDate()).padStart(2, "0");
+        const day = weekdays[now.getDay()];
+        const formattedDate = `${year}-${month}-${date} (${day})`;
+        document.getElementById("now-date").textContent = formattedDate;
+    </script>
+  </body>
+</html>
