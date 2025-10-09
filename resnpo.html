@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>resnpo(レスンポ)</title>
+    <title>驚額の殿堂3（スリー） | resnpo(レスンポ) </title>
     <meta charset="utf-8" />
     <meta name="description" content="焼きそばホグワーツの出席管理ツール" />
     <meta name="keywords" content="雙峰祭, フランクフルト, 驚額の殿堂,resnpo">
@@ -17,7 +17,6 @@
             color: #453e30;
             margin: 0;
         }
-
         .container{
             background-color: #fff;
             max-width: 512px; 
@@ -119,12 +118,224 @@
         .footer p{
             margin-top: -1px;
         }
+
+
+        .modal-backdrop{
+        position: fixed; inset: 0;
+        display: none;                         /* 初期は非表示 */
+        align-items: center; justify-content: center;
+        background: rgba(0,0,0,0.25);
+        backdrop-filter: blur(6px);            /* 背景ぼかし */
+        -webkit-backdrop-filter: blur(6px);
+        z-index: 1000;
+      }
+      .modal-backdrop.show{ display: flex; }
+
+      .modal{
+        background-color: #fff;
+        width: 400px; 
+        border-radius: 4px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        overflow: hidden;
+        animation: pop 160ms ease-out;
+        border: 6px solid #f72bdc;
+      }
+      @keyframes pop{ from{ transform: scale(.98); opacity:0 } to{ transform: scale(1); opacity:1 } }
+
+      .modal-header{
+        display: flex;
+        width: 80%;
+        background:#face20;
+        color:#fff; 
+        font-weight:bold;
+        justify-content: center;
+        align-items: center;
+        margin:30px auto 0px auto;
+        height:30px;
+        border-radius: 15px; 
+        font-size: 1.5rem;
+      }
+
+      .modal-icon{
+        display: flex;   
+        font-size: 60px;
+        font-weight: bold;
+        color:#555;
+        justify-content: center;
+        align-items: center;
+        height:120px;
+      }
+      .modal-icon p{
+        text-align: center;
+        width: 90px;
+        background:#fae077;
+        border-radius: 60px
+      }
+
+      .modal-body{
+        text-align: center;
+        color:#555; 
+      }
+      .modal-message{ 
+        font-size: 32px;
+      }
+      .modal-charger{ 
+        font-size: 18px; 
+      }
+      .modal-lecture{ 
+        color:#000; 
+        font-size: 24px; 
+      }
+      .modal-actions{
+        display:flex; gap:10px; justify-content:center; padding: 0 16px 16px;
+      }
+      .btn{
+        border:none; border-radius:4px; padding:12px 48px; font-weight:bold; cursor:pointer; margin-top:20px;
+      }
+      .btn-primary{ background:#f08200; color:#fff; }
+
+
+      
+      body.modal-open{ 
+        overflow: hidden; 
+      }
+
+      .error-text{
+        color:#cc0000; 
+        margin-bottom:2px; 
+        font-weight: bold;
+        text-align: left;
+      }
+
+      .modal-random-img {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit:none;  
+        display: none;                   
+        z-index: 9999;
+        backdrop-filter: blur(8px);       
+        -webkit-backdrop-filter: blur(8px);
+        opacity: 0;
+        transition: opacity 0.4s ease;    
+    }
+
+    .modal-random-img.show {
+        display: block;
+        opacity: 1;
+    }
+      
     </style>
 
     <script>
-        function showMessage() {
-        alert("何もないんぽ~");
+        const ALLOWED_CODES = ["110203228"];
+
+        // 全角→半角へ正規化してからチェック
+        function normalizeDigits(str){
+        return str.replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0)).trim();
         }
+
+        function isNineDigits(str){
+        return /^\d{9}$/.test(str);
+        }
+
+        function formatCodeSpaced(str){
+            return str.replace(/(\d{3})(?=\d)/g, "$1 ");
+        }
+        function openModal(code){
+            const backdrop = document.getElementById('modal-backdrop');
+            const body = document.getElementsByTagName('body')[0];
+            document.getElementById('modal-title').textContent = code;
+            backdrop.classList.add('show');
+            body.classList.add('modal-open');
+            // フォーカス移動（アクセシビリティ）
+            document.getElementById('modal-ok').focus();
+        }
+
+        function closeModal(){
+        const backdrop = document.getElementById('modal-backdrop');
+        const body = document.getElementsByTagName('body')[0];
+        backdrop.classList.remove('show');
+        body.classList.remove('modal-open');
+        }
+
+        function closeImage(){
+        const imgEl  = document.getElementById('modal-random-img');
+        imgEl.style.display = "none";
+        }
+
+        // 既存の showMessage を置き換え
+        function showMessage(){
+        const input = document.getElementById('form-text');
+        const raw = input.value || "";
+        const code = normalizeDigits(raw);
+
+        const errorEl = document.getElementById('error-area');
+        errorEl.textContent = ""; // いったん消す
+
+        if(!isNineDigits(code)){
+            errorEl.textContent = "番号が正しくありません。";
+            return;
+        }
+
+        if(ALLOWED_CODES.includes(code)){
+            // 条件に一致：モーダル表示（背景は backdrop-filter でぼかし）
+            const formatted = formatCodeSpaced(code);
+            openModal(` ${formatted} `);
+        }else{
+            errorEl.textContent = "番号が正しくありません。";
+        }
+        }
+
+// ESCキーや外側クリックで閉じる
+document.addEventListener('DOMContentLoaded', () => {
+  const backdrop = document.getElementById('modal-backdrop');
+  backdrop.addEventListener('click', (e) => {
+    if(e.target === backdrop){ closeModal(); }
+  });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape'){ closeModal(); }
+  });
+});
+
+
+  const RANDOM_MIN = 1;
+  const RANDOM_MAX = 999;               // 1〜999 の中から抽選
+  const IMAGE_PROBABILITY = 0.35;       // 35% の確率で画像表示
+  const RANDOM_IMAGE_SRC = "./images/lucky.png"; 
+
+  // ランダム整数（min〜max）
+  function randInt(min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function submitWithRandom(event){
+    event.preventDefault();
+
+    const n = randInt(RANDOM_MIN, RANDOM_MAX);
+    const textEl = document.getElementById('modal-random-text');
+    const imgEl  = document.getElementById('modal-random-img');
+
+
+    // 画像の表示可否
+    if(Math.random() < IMAGE_PROBABILITY){
+      // 画像をセット＆表示（フェード風）
+      imgEl.src = RANDOM_IMAGE_SRC;
+      imgEl.style.opacity = "0";
+      imgEl.style.display = "block";
+      requestAnimationFrame(() => {
+        imgEl.style.transition = "opacity 180ms ease-out";
+        imgEl.style.opacity = "1";
+        textEl.textContent = `${n}番に提出(当たりんぽ！)`;
+      });
+    }else{
+      // 画像は非表示
+      imgEl.style.display = "none";
+      imgEl.removeAttribute("src");
+      textEl.textContent = `${n}番に提出`;
+    }
+  }
   </script>
   </head>
   <body>
@@ -135,7 +346,8 @@
     </div>
     <div class="main">
         <div class="form">
-            <input type="text"  name="code" class="form-text" id="form-text" value="" placeholder="9桁の番号を入力">
+            <div id="error-area" class="error-text"></div>
+            <input type="text" name="code" class="form-text" id="form-text" value="" placeholder="9桁の番号を入力" inputmode="numeric" autocomplete="one-time-code">
             <button class="button-orange" onclick="showMessage()">GO</button>
         </div>
 
@@ -145,7 +357,7 @@
             <img class="resnpo-img" src="./images/resnpo.png" alt="resnpo" height="100px">
             <p>アプリ未設定の方は</p>
             <div class="apps-button">
-                <img class="app-icon" src="./images/npo_orange.png" alt="App-icon" width="40px">
+                <img class="app-icon" src="./images/npo_orange.png" alt="npo orange" width="40px">
                 <p>resnpoアプリをダウンロード</p>
             </div>
             <p>アプリに設定するサーバは<br><font size="4" >https://<b><font color="#ff0000">kyogaku.yokohama.dev/</font></b></font></p>
@@ -155,6 +367,24 @@
         <p>© 2025 驚額の殿堂. All rights reserved.</p>
     </div>
 
+
+    <div id="modal-backdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal">
+          <img class="modal-random-img" id="modal-random-img" alt="当たりんぽ！" style="display:none;" onclick="closeImage()"/>
+          <div class="modal-header" id="modal-title">受付完了</div>
+          <div class="modal-icon"><p>フ</p></div>
+          <div class="modal-body">
+            <div class="modal-message">フランクフルト概論</div>
+            <div class="modal-charger">んぽたそ</div>
+            <div class="modal-lecture">雙峰祭 特別講義</div>
+            <p id="modal-random-text" style="font-weight:bold; margin-top:6px;"></p>
+          </div>
+          <div class="modal-actions">
+            <div id="modal-ok" class="btn btn-primary" onclick="submitWithRandom(event)">提出</div>
+          </div>
+        </div>
+    </div>
    </div>
+
   </body>
 </html>
