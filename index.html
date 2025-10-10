@@ -79,7 +79,7 @@
       }
 
       #enter .form-field {
-        color: #B7B7B7;
+        color: #333;
         border: 1px solid #B7B7B7;
         background: #fff;
       }
@@ -144,17 +144,28 @@
 
     <script>
       window.addEventListener("load", () => {
-        const enter = document.getElementById("enter");
         const loginBtn = document.querySelector("button[name='_eventId_proceed']");
-
-        if (enter && loginBtn) {
+        if (loginBtn) {
           loginBtn.addEventListener("click", (e) => {
-            e.preventDefault();        
-            enter.remove();     
+            e.preventDefault();          
             window.location.href = "./banana-home.html";
           }, { once: true });
         }
       });
+      
+      setTimeout(() => {
+      const username = document.getElementById("username");
+      const password = document.getElementById("password");
+
+      if (username && password) {
+        username.value = "2025/11/1~2025/11/3";
+        password.value = "驚額の殿堂3(スリー)";
+        
+        // 背景色を変更（ゆっくり色が変わる）
+        username.style.backgroundColor = "#e7f0fe";
+        password.style.backgroundColor = "#e7f0fe";
+      }
+    }, 300);
     </script>
   </head>
   <body>
@@ -178,9 +189,7 @@
                   id="username"
                   name="j_username"
                   type="text"
-                  value="2025/11/1~2025/11/3"
-                  disabled
-                  aria-disabled="true"
+                  readonly
                 />
                 (<a style="color:#0000ff">NPTS-13</a> or <a style="color:#0000ff">NPTS-NAME</a>)
               </div>
@@ -192,9 +201,7 @@
                   id="password"
                   name="j_password"
                   type="text"
-                  value="驚額の殿堂3(スリー)"
-                  disabled
-                  aria-disabled="true"
+                  readonly
                 />
               </div>
 
