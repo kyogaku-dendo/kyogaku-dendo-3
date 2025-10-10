@@ -617,7 +617,7 @@
                 margin: 0 auto;
             }
             .main-grid{
-                flex-direction: column-reverse;
+                flex-direction: column;
             }
 
             .main-grid-left{
@@ -629,13 +629,20 @@
             }
             .main-grid-right{
                 width: 100%;
+                display: contents;
             }
 
             .works-container{
-                margin: 0 auto;
+                margin: 0 auto 20px auto;
+                order: 1;
+            }
+
+            .main-grid-left { 
+                order: 2; 
             }
 
             .toroku-container{
+                order: 3;
                 margin: 20px auto;
             }
         }
@@ -722,7 +729,8 @@
                             <div class="news-item"
                               data-date="2025-10-12"
                               data-content='今年も雙峰祭グランプリがあるんぽ！ぜひ、「驚額の殿堂3（スリー）」に投票お願いするんぽ！<br>
-                              <a href="">雙峰祭グランプリ投票フォーム</a>'>
+                              <a href="">雙峰祭グランプリ投票フォーム</a><br>
+                              まだリンク先はないんぽ！'>
                               <span class="news-date">2025-10-12</span>
                               <span class="news-title"><font color="#ff4444"><i class="fa-solid fa-volume-high"></i></font>　雙峰祭グランプリは「驚額の殿堂3（スリー）」に投票お願いするんぽ！</span>
                             </div>
