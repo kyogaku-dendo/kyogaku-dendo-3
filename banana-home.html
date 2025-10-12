@@ -299,7 +299,6 @@
 
         .message-container{
             width:95%;
-            height:120px;
             margin: 0 auto 20px auto;
         }
 
@@ -333,12 +332,27 @@
         }
 
         .news-date {
-        margin-right: 40px;
+            margin-right: 40px;
+            align-items: center;
+            display: flex;
+            width: 15%;
         }
 
         .news-title {
+        font-size: 14px;
+        width: 85%;
         color: #2449a8;
         font-weight: bold;
+        flex: 1 1 auto;          /* 残り幅を使う */
+        min-width: 0;            /* ← これが無いと省略が効かないことがある（flexの罠） */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;     /* 1行にする */
+        display: block;    
+        }
+
+        .news-title { 
+        word-break: break-all;   /* 必要なら有効化。通常は不要 */
         }
 
         .news-title:hover {
@@ -730,7 +744,7 @@
                               11/2(日), 11/3(月) に人文社会学系棟前でやるんぽ<br>
                               皆様のご来店をお待ちしておりますんぽ！'>
                               <span class="news-date">2025-10-12</span>
-                              <span class="news-title"><font color="#ff4444"><i class="fa-solid fa-volume-high"></i></font>　今年も雙峰祭でるんぽ！ 11/2~3 人文社会学系棟前 お待ちしておりますんぽ~！</span>
+                              <span class="news-title"><font color="#ff4444"><i class="fa-solid fa-volume-high"></i>　</font><font size="+2">11/2~3 人文社会学系棟前</font> 雙峰祭でお待ちしてるんぽ！ </span>
                             </div>
                             <div class="news-item"
                               data-date="2025-10-12"
