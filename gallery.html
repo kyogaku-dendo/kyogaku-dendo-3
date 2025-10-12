@@ -338,8 +338,15 @@
             margin-left:10px;
         }
 
-        .galley-container img{
+        .gallery-container{
+            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .gallery-container img{
             border: 1px solid #aaa;
+            margin-top: 20px;
         }
 
         @media screen and (max-width: 768px) {
@@ -438,9 +445,13 @@
                     </div>
                 </div>
             </div>
-            <div class="galley-container">
-                <img src="./images/logo1.png" alt="驚額殿堂 Dendo of kyogaku" width="100%">
+            <div class="gallery-container">
+                <img src="https://kyogaku.yokohama.dev/images/logo1.png" alt="驚額殿堂 Dendo of kyogaku" width="100%">
+                <img src="./images/gallery/frank.webp" alt="フランクフルト" width="500px">
+                <img src="./images/gallery/kyogaku.jpg" alt="驚額の殿堂" width="500px">
+                <img src="./images/gallery/niku.jpg" alt="肉が焼けている写真" width="500px">
                 <img src="./images/resnpo_logo2.png" alt="resnpo" width="100%">
+                <video controls width="500"><source src="./images/gallery/video.mp4" type="video/mp4" /></video>
                 <img src="./images/npo_purple.png" alt="npo purple" width="100%">
             </div>
         </div>
