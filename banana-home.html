@@ -21,6 +21,8 @@
     <script src="./script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
+    <link rel="preconnect" href="https://renbai-counter.yokohama.dev" crossorigin>
+    <link rel="dns-prefetch" href="https://renbai-counter.yokohama.dev">
     <style>
         body{
             background-color: #fff;
@@ -355,16 +357,16 @@
         width: 85%;
         color: #2449a8;
         font-weight: bold;
-        flex: 1 1 auto;          /* 残り幅を使う */
-        min-width: 0;            /* ← これが無いと省略が効かないことがある（flexの罠） */
+        flex: 1 1 auto;      
+        min-width: 0;            
         overflow: hidden;
         text-overflow: ellipsis;
-        white-space: nowrap;     /* 1行にする */
+        white-space: nowrap;     
         display: block;    
         }
 
         .news-title { 
-        word-break: break-all;   /* 必要なら有効化。通常は不要 */
+        word-break: break-all;   
         }
 
         .news-title:hover {
@@ -644,6 +646,14 @@
             margin-right: 20px;
         }
 
+        .visitor {
+            display: inline-block;
+            min-width: 18ch; 
+            font-variant-numeric: tabular-nums;
+        }
+        .visitor.dim { opacity: .55; }
+
+
         @media screen and (max-width: 768px) {
             .main{
                 width: 658px;
@@ -727,7 +737,7 @@
             <div class ="middle-bar">
                 <div class="middle-bar-icon"><img src="./images/npo_user.png" alt="ユーザーロゴ" height="50"/></div>
                 <div class="middle-bar-contents">
-                    <div class="middle-bar-my-page"><!--ここに人数 --></div>
+                    <div class="middle-bar-my-page"><span id="visitor-count" class="visitor dim">— 人目のお客様のマイページ</span></div>
                     <div class="middle-bar-button-container">
                         <div class="middle-bar-button selected">SNS➡︎</div>
                         <div class="middle-bar-button-gap"></div>
@@ -975,16 +985,36 @@
         const formattedDate = `${year}-${month}-${date} (${day})`;
         document.getElementById("now-date").textContent = formattedDate;
 
-        // アクセスカウンタを middle-bar-my-page の中に表示
-        (async () => {
-            const count = await fetchAccessCounter();
-            if (count !== null) {
-            const el = document.querySelector(".middle-bar-my-page");
-            const span = document.createElement("span");
-            span.textContent = `${count}人目のお客様のマイページ`;
-            el.insertAdjacentElement("beforeend", span); 
-            }
-        })();
+        //来場者カウンター
+        (function () {
+        const el = document.getElementById("visitor-count");
+        if (!el) return;
+
+        const cached = localStorage.getItem("visitorCount");
+        if (cached) {
+        el.textContent = `${cached}人目のお客様のマイページ`;
+        }
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3000);
+
+        fetch("https://renbai-counter.yokohama.dev/counter", {
+        signal: controller.signal,
+        mode: "cors",
+        cache: "no-store"
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (!data || typeof data.count !== "number") return;
+            el.textContent = `${data.count}人目のお客様のマイページ`;
+            el.classList.remove("dim");
+            localStorage.setItem("visitorCount", String(data.count));
+        })
+        .catch(() => {
+            // 失敗時はキャッシュ表示のまま
+        })
+        .finally(() => clearTimeout(timeoutId));
+    })();
         
 
         //お知らせ
