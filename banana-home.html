@@ -83,6 +83,11 @@
             color: #0000dd;
             justify-content: flex-end;
         }
+
+        .header-conf a{
+            text-decoration: none;
+        }
+
         .text-border{
             border: 1px solid #aaa;
             height: 14px;
@@ -169,17 +174,17 @@
             height: 100%;
             border-left: 1px solid #ddd;
             border-right: 1px solid #ddd;
-            width:120px;
             display: flex;             
             justify-content: center;    
             align-items: center;        
             text-align: center;
             margin: auto 0;
+            padding: 0 20px;
         }
-        .courses:hover{
+        /*.courses:hover{
             color: #55a308;
             background: linear-gradient(#f9fdf2,#cce4a5);
-        }
+        }*/
 
 
         .top-bar2{
@@ -215,10 +220,10 @@
             margin-right:10px;
         }
 
-        .top-bar2-box:hover{
+        /*.top-bar2-box:hover{
             color: #2449a8;
             background: linear-gradient(#fff,#eee);
-        }
+        }*/
 
         .middle-bar{
             display: flex;
@@ -501,9 +506,9 @@
             padding-top: 4px;
             margin-top: 10px;
         }
-        .course-change-button:hover{
+        /*.course-change-button:hover{
             color: #529C09;
-        }
+        }*/
 
         .course-change-container1 .selected{
             border: 1px solid #94cc36;
@@ -653,6 +658,9 @@
         }
         .visitor.dim { opacity: .55; }
 
+        .not-link{
+            color: #aaa;
+        }
 
         @media screen and (max-width: 768px) {
             .main{
@@ -688,6 +696,10 @@
                 order: 3;
                 margin: 20px auto;
             }
+
+            .courses{
+                padding: 0 10px;
+            }
         }
 
 
@@ -707,11 +719,11 @@
                         <div class="now-date" id="now-date"></div>
                     </div>
                     <div class="header-conf">
-                        んぽたそ
+                        <div class="not-link">んぽたそ</div>
                         <div class="text-border"></div>
-                        設定
+                        <div class="not-link">設定</div>
                         <div class="text-border"></div>
-                        ログアウト
+                        <a href="./index.html">ログアウト</a>
                     </div>
                 </div>
                 <div class="header-icon"><img src="./images/npo_user.png" alt="ユーザーアイコン" height="45"/></div>
@@ -725,7 +737,7 @@
                 <div class="top-bar1">
                     <div class="my-page"><i class="fa-solid fa-user"></i>マイページ</div>
                     <div class="courses"><i class="fa-solid fa-chalkboard-user"></i>　コース</div>
-                    <div class="courses"><font size="+1"><i class="fa-solid fa-newspaper"></i></font>　ポートフォリオ</div>
+                    <div class="courses"><font size="+1"><i class="fa-solid fa-newspaper"></i></font>　ンポートフォリオ</div>
                 </div>
                 <div class="top-bar2">
                     <a href="./resnpo.html"><img class="resnpo" src="./images/resnpo_logo2.png" alt="resnpo" height="20"/></a>
@@ -752,7 +764,7 @@
                 <div class="memo"><i class="fa-solid fa-file-pen"></i>メモ</div>
             </div>
             <div class="attention-var">
-                <div class="attention"><i class="fa-solid fa-circle-exclamation"></i>ポートフォリオにコレクションが追加されました。</div>
+                <div class="attention"><i class="fa-solid fa-circle-exclamation"></i>ンポートフォリオにコレクションが追加されましたんぽ。</div>
             </div>
             <div class="main-grid">
                 <div class="main-grid-left">
@@ -935,8 +947,8 @@
                         <div class="toroku-label"> <font color="#c9e99b">&#9670; </font>  自己破産について</div>
                         <p>債務の返済が困難な場合は、裁判所に申立てを行い、自己破産の手続きを開始してください。<br>
                             自己破産の申立てを行わないまま支払いを放置すると、債権者からの取立てや差押えなどが継続するおそれがあります。</p>
-                            <div class="toroku-link">＞ コースを検索して登録</div>
-                            <div class="toroku-link">＞ 登録キーを用いて登録</div>
+                            <div class="toroku-link not-link">＞ 裁判所に申し立て手続き</div>
+                            <div class="toroku-link not-link">＞ 取り立て差し押さえについて</div>
                     </div>
                 </div>
             </div>
@@ -952,7 +964,7 @@
                 <div class="banana-version">banana 3.141592</div>
                 <div class="copy-right">Copyright (C) 2025 驚額の殿堂</div>
             </div>
-            <div class="footer-text">マニュアル パーソナルデータについて</div>
+            <div class="footer-text not-link">マニュアル パーソナルデータについて</div>
         </div>
         
         <div class="footer2">

@@ -275,7 +275,7 @@
         errorEl.textContent = ""; // いったん消す
 
         if(!isNineDigits(code)){
-            errorEl.textContent = "番号が正しくありません。";
+            errorEl.textContent = "番号が正しくないんぽ";
             return;
         }
 
@@ -284,7 +284,7 @@
             const formatted = formatCodeSpaced(code);
             openModal(` ${formatted} `);
         }else{
-            errorEl.textContent = "番号が正しくありません。";
+            errorEl.textContent = "番号が正しくないんぽ";
         }
         }
 
@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
    <div class="container">
     <div class="header">
         <h1 class="school">焼きそばホグワーツ</h1>
-        <div class="option"><font color="#009AF3">English</font> | <font color="#009AF3">スマホ</font></div>
+        <div class="option"><font color="#aaa">English</font> | <font color="#aaa">スマホ</font></div>
     </div>
     <div class="main">
         <div class="form">
