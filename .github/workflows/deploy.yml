@@ -1,0 +1,40 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v5
+      
+      - name: Prepare distribution directory
+        run: |
+             mkdir -p dist
+             
+             # 2023, 2024ディレクトリをコピーする
+             for dir in 2023 2024; do
+              if [ -d "$dir" ]; then
+                cp -r $dir dist/
+              fi
+             done
+             
+             # それ以外のhtml, css, jsファイルをコピーする
+             for ext in html css js; do
+              find . -name "*.$ext" -not -path "./node_modules/*" -not -path "./dist/*" -not -path "./2023/*" -not -path "./2024/*" -exec cp --parents {} dist/ \;
+             done
+             
+             # imagesディレクトリもコピー
+             if [ -d "images" ]; then
+              cp -r images dist/
+             fi
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=kyogaku-dendo-3
