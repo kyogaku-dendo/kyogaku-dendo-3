@@ -5,11 +5,15 @@
     <meta charset="utf-8" />
     <meta name="description" content="焼きそばホグワーツの出席管理ツール" />
     <meta name="keywords" content="雙峰祭, フランクフルト, 驚額の殿堂,resnpo">
-    <meta name="viewport" content="width=720">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="./style.css" rel="stylesheet">
     <script src="./script.js"></script>
 
     <style>
+      *,
+      *::before,
+      *::after { box-sizing: border-box; }
+
         body{
             background-color: #cccccc;
             font-size: 15px;
@@ -52,13 +56,15 @@
         }
 
         .main .form-text{
+            display: block; 
             text-align: center;
+            width: 90%; 
             margin: 0px auto; 
-            width: 100%; 
             font-size: 28px;
             border-radius: 5px;
             border: 2px solid #f08200;
             outline: none; 
+            box-sizing: border-box;
         }
         .main input::placeholder {
             color: #cfcfcf; 
