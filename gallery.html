@@ -354,6 +354,19 @@
             color: #aaa;
         }
 
+        .toroku-kikan{
+            margin:0 auto;
+        }
+
+        .u-lg{ font-size: 1.25em; }
+        .middle-bar-course-number{margin:0 auto;}
+        .middle-bar-course-name{margin:0 auto;}
+        .text-green{color:#94cc36;}
+        .text-blue{color:#2449a8;}
+        .course-meta2-movie{margin:0 auto;}
+        .course-meta2-desc-text{margin: 0 auto}
+        .text-gray{color:#ddd; font-size: 1.25em;}
+
         @media screen and (max-width: 768px) {
             .main{
                 width: 658px;
@@ -382,78 +395,80 @@
   <body>
     <div class="main">
     <!-- ヘッダーここから -->
-        <div class="header">
+        <header class="header">
             <h1 class="header1"><img src="./images/logo2.png" alt="驚額殿堂 Dendo of kyogaku" height="60"/></h1>
             <div class="header2">
                 <div class="header-text">
                     <div class="kikan-date">
-                        <div class="toroku-kikan">※自己登録許可期間中んぽ</div>
-                        <div class="now-date" id="now-date"></div>
+                        <p class="toroku-kikan">※自己登録許可期間中んぽ</p>
+                        <time class="now-date" id="now-date"></time>
                     </div>
                     <div class="header-conf">
-                        <div class="not-link">んぽたそ</div>
-                        <div class="text-border"></div>
-                        <div class="not-link">設定</div>
-                        <div class="text-border"></div>
+                        <span class="not-link">んぽたそ</span>
+                        <span class="text-border" aria-hidden="true"></span>
+                        <span class="not-link">設定</span>
+                        <span class="text-border" aria-hidden="true"></span>
                         <a href="./index.html">ログアウト</a>
                     </div>
                 </div>
                 <div class="header-icon"><img src="./images/npo_user.png" alt="ユーザーアイコン" height="45"/></div>
             </div>
-        </div>
+        </header>
     <!-- ヘッダーここまで -->
 
     <!-- コンテンツここから -->
-        <div class="content">
-            <div class="top-bar">
+        <main class="content">
+            <section class="top-bar" aria-label="トップバー">
                 <div class="top-bar1">
-                    <a href="./banana-home.html" class="my-page"><i class="fa-solid fa-user"></i>マイページ</a>
-                    <div class="courses course-selected"><i class="fa-solid fa-chalkboard-user"></i>　コース</div>
-                    <div class="courses"><font size="+1"><i class="fa-solid fa-newspaper"></i></font>　ンポートフォリオ</div>
+                    <a href="./banana-home.html" class="my-page"><i class="u-lg fa-solid fa-user"></i>マイページ</a>
+                    <span class="courses course-selected"><i class="u-lg fa-solid fa-chalkboard-user"></i>　コース</span>
+                    <span class="courses"><i class="u-lg fa-solid fa-newspaper"></i>　ンポートフォリオ</span>
                 </div>
                 <div class="top-bar2">
-                    <a href="./resnpo.html"><img class="resnpo" src="./images/resnpo_logo2.png" alt="resnpo" height="20"/></a>
-                    <div class="top-bar2-box"><i class="fa-solid fa-file-pen"></i>メモ一覧</div>
-                    <div class="top-bar2-box">English</div>
+                    <a href="./resnpo.html">
+                      <img class="resnpo" src="./images/resnpo_logo2.png" alt="resnpo" height="20">
+                    </a>
+                    <span class="top-bar2-box"><i class="fa-solid fa-file-pen" aria-hidden="true"></i>メモ一覧</span>
+                    <span class="top-bar2-box">English</span>
                 </div>
+            </section>
 
-            </div>
-            <div class ="middle-bar">
+            <section class="middle-bar" aria-label="コースヘッダー">
                 <div class="middle-bar-icon"><img src="./images/gallery_icon.png" alt="NPTS" height="50"/></div>
                 <div class="middle-bar-contents">
                     <div class="course-meta">
                         <div class="course-meta1">
-                            <div class="middle-bar-course-number">GALLERY</div>
-                            <div class="middle-bar-course-name">ギャラリー</div>
+                            <p class="middle-bar-course-number">GALLERY</p>
+                            <p class="middle-bar-course-name">ギャラリー</p>
                         </div>
                         <div class="course-meta2">
-                            <div class="course-meta2-movie">
-                                    <font color="#94cc36"><i class="fa-regular fa-circle-play"></i></font>
-                                    <span class="badge"><font color="##2449a8">movie</font></span>
-                            </div>
+                            <p class="course-meta2-movie">
+                                    <span class="text-green"><i class="fa-regular fa-circle-play"></i></span>
+                                    <span class="badge"><span class="text-blue">movie</span></span>
+                            </p>
                             <div class="course-meta2-desc">
-                                <div class="course-meta2-desc-text">担当: 驚額の殿堂3（スリー）</div>
-                                <div class="course-meta2-desc-text">2025 秋</div>
+                                <p class="course-meta2-desc-text">担当: 驚額の殿堂3（スリー）</p>
+                                <p class="course-meta2-desc-text">2025 秋</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="middle-bar-button-container">
                         <div class="middle-bar-button-container1">
-                            <div class="middle-bar-button">小テスト</div>
-                            <div class="middle-bar-button">アンケート</div>
-                            <div class="middle-bar-button">レポート</div>
-                            <div class="middle-bar-button">プロジェクト</div>
-                            <div class="middle-bar-button">成　績</div>
+                            <span class="middle-bar-button">小テスト</span>
+                            <span class="middle-bar-button">アンケート</span>
+                            <span class="middle-bar-button">レポート</span>
+                            <span class="middle-bar-button">プロジェクト</span>
+                            <span class="middle-bar-button">成　績</span>
                         </div>
                         <div class="middle-bar-button-container2">
-                            <div class="middle-bar-button2"><font size="+1"color="#ddd"><i class="fa-solid fa-comments"></i></font>　掲示板</div>
-                            <div class="middle-bar-button2"><font size="+1"color="#ddd"><i class="fa-solid fa-book-open"></i></font>　コースコンテンツ</div>
+                            <span class="middle-bar-button2"><i class="text-gray fa-solid fa-comments"></i>　掲示板</span>
+                            <span class="middle-bar-button2"><i class="text-gray fa-solid fa-book-open"></i>　コースコンテンツ</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="gallery-container">
+            </section>
+            <section class="gallery-container">
                 <img src="https://kyogaku.yokohama.dev/images/logo1.png" alt="驚額殿堂 Dendo of kyogaku" width="100%">
                 <img src="./images/gallery/frank.webp" alt="フランクフルト" width="500px">
                 <img src="./images/gallery/kyogaku.jpg" alt="驚額の殿堂" width="500px">
@@ -461,27 +476,26 @@
                 <img src="./images/resnpo_logo2.png" alt="resnpo" width="100%">
                 <video controls width="500"><source src="./images/gallery/video.mp4" type="video/mp4" /></video>
                 <img src="./images/npo_purple.png" alt="npo purple" width="100%">
-            </div>
-        </div>
+            </section>
+        </main>
     <!-- コンテンツここまで -->
 
 
 
     <!-- フッターここから -->
-    <div class="footer">
+    <footer class="footer">
         <div class="footer1">
-            <div class="ver-rights">
-                <div class="banana-version">banana 3.141592</div>
-                <div class="copy-right">Copyright (C) 2025 驚額の殿堂</div>
-            </div>
-            <div class="footer-text not-link">マニュアル パーソナルデータについて</div>
+          <div class="ver-rights">
+            <div class="banana-version">banana 3.141592</div>
+            <div class="copy-right">Copyright (C) 2025 驚額の殿堂</div>
+          </div>
+          <div class="footer-text not-link">マニュアル パーソナルデータについて</div>
         </div>
-        
         <div class="footer2">
-            powered by 
-            <div class="footer-icon"><img src="./images/logo3.png" alt="Dendo of kyogaku" height="45"/></div>
+          powered by 
+          <div class="footer-icon"><img src="./images/logo3.png" alt="Dendo of kyogaku" height="45"/></div>
         </div>
-    </div>
+      </footer>
     <!-- フッターここまで -->
     </div>
     

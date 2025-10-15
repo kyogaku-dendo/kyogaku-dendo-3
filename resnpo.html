@@ -182,6 +182,11 @@
         text-align: center;
         color:#555; 
       }
+
+       .modal-body p{
+        margin: 0 auto;
+       }
+
       .modal-message{ 
         font-size: 32px;
       }
@@ -230,6 +235,19 @@
     .modal-random-img.show {
         display: block;
         opacity: 1;
+    }
+
+    .deka{
+      font-size: 20px;
+    }
+
+    .aka{
+      font-weight: bold;
+      color: #ff0000;
+    }
+
+    .gray{
+      color: #aaa;
     }
       
     </style>
@@ -346,11 +364,11 @@ document.addEventListener('DOMContentLoaded', () => {
   </head>
   <body>
    <div class="container">
-    <div class="header">
+    <header class="header">
         <h1 class="school">焼きそばホグワーツ</h1>
-        <div class="option"><font color="#aaa">English</font> | <font color="#aaa">スマホ</font></div>
-    </div>
-    <div class="main">
+        <div class="option"><span class="gray">English</span> | <span class="gray">スマホ</span></div>
+    </header>
+    <main class="main">
         <div class="form">
             <div id="error-area" class="error-text"></div>
             <input type="text" name="code" class="form-text" id="form-text" value="" placeholder="9桁の番号を入力" inputmode="numeric" autocomplete="one-time-code">
@@ -366,27 +384,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img class="app-icon" src="./images/npo_orange.png" alt="npo orange" width="40px">
                 <p>resnpoアプリをダウンロード</p>
             </div>
-            <p>アプリに設定するサーバは<br><font size="4" >https://<b><font color="#ff0000">kyogaku.yokohama.dev/</font></b></font></p>
+            <p>アプリに設定するサーバは<br><span class="deka">https://<span class="aka">kyogaku.yokohama.dev/</span></span></p>
         </div>
-    </div>
-    <div class="footer">
+      </main>
+    <footer class="footer">
         <p>© 2025 驚額の殿堂. All rights reserved.</p>
-    </div>
+    </footer>
 
 
     <div id="modal-backdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="modal">
           <img class="modal-random-img" id="modal-random-img" alt="当たりんぽ！" style="display:none;" onclick="closeImage()"/>
-          <div class="modal-header" id="modal-title">受付完了</div>
+          <p class="modal-header" id="modal-title">受付完了</p>
           <div class="modal-icon"><p>フ</p></div>
           <div class="modal-body">
-            <div class="modal-message">フランクフルト概論</div>
-            <div class="modal-charger">んぽたそ</div>
-            <div class="modal-lecture">雙峰祭 特別講義</div>
+            <p class="modal-message">フランクフルト概論</p>
+            <p class="modal-charger">んぽたそ</p>
+            <p class="modal-lecture">雙峰祭 特別講義</p>
             <p id="modal-random-text" style="font-weight:bold; margin-top:6px;"></p>
           </div>
           <div class="modal-actions">
-            <div id="modal-ok" class="btn btn-primary" onclick="submitWithRandom(event)">提出</div>
+            <p id="modal-ok" class="btn btn-primary" onclick="submitWithRandom(event)">提出</p>
           </div>
         </div>
     </div>
