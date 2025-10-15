@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="ja">
   <head>
     <title>驚額の殿堂3（スリー） | banana(バナナ) </title>
     <meta charset="utf-8" />
@@ -46,6 +46,12 @@
             margin:0;
             line-height:1.0;
         }
+
+        p{
+            padding:0;
+            margin:0;
+            line-height:1.0;
+        }
     
         .header1 {
             text-align: center;
@@ -61,7 +67,8 @@
             display: flex;
             text-align: center;
             justify-content: space-between;
-            align-items: right;  
+            align-items: right; 
+
         }
 
         .toroku-kikan{
@@ -245,7 +252,7 @@
             display: flex;
             font-size: 16px;
             text-decoration: none;
-            margin-top: 8px;
+            padding: 12px 0px 4px 0px;
         }
         .middle-bar-my-page:hover{
             text-decoration:underline;
@@ -376,6 +383,10 @@
         text-decoration: underline;
         }
 
+        .news-deka{
+            font-size: 24px;
+        }
+
         /* === モーダル（ミニウィンドウ） === */
         .news-modal {
         display: none; 
@@ -437,11 +448,11 @@
         }
 
         .news-modal h3 {
-        width: 90%;
+        width: 85%;
         }
 
         .news-modal span {
-            width: 12%;
+            width: 15%;
             text-align: end;
             padding-right: 10px;
         }
@@ -462,10 +473,12 @@
 
         .course-container{
             width:95%;
-            margin: 0 auto 20px auto;
+            margin: 0 auto;
         }
 
         .course-label, .works-label{
+            display: flex;
+            align-items: center;
             height: 30px;
             border: 1px solid #94cc36;
             background-color: #dcefbb;
@@ -485,6 +498,7 @@
             border-bottom:1px solid #94cc36 ;
             display: flex;
             justify-content: space-between;
+            margin: 0 auto 20px auto;
         }
 
         .course-change-container1{
@@ -524,8 +538,8 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px 10px;   
-            width:95%;
-            margin: 0 auto 20px auto;              
+            width:100%;
+            margin: 0 auto;              
         }
 
         .course-card {
@@ -546,7 +560,6 @@
             display: flex;
             font-size: 11px; 
             color:#888; 
-            margin-bottom: -3px;
         }
 
         .star-icon{
@@ -572,6 +585,7 @@
 
         .course-card .meta { 
             font-size: 12px; color:#000; 
+            line-height: 1.4;
         }
 
         .badge{
@@ -627,6 +641,10 @@
             padding-bottom: 20px;
         }
 
+        .toroku-container p{
+            line-height: 1.5;
+        }
+
         .toroku-label{
             display: flex;
             height: 40px;
@@ -659,6 +677,15 @@
         .not-link{
             color: #aaa;
         }
+
+        .text-danger{ color:#f00; }
+        .text-muted{ color:#555; }
+        .text-primary{ color:#2449a8; }
+        .text-gray{ color:#aaa; }
+        .text-green{ color:#529C09; }
+        .u-lg{ font-size: 1.25em; }
+        .text-fade{color: #ddd;}
+        .text-play{color:#94cc36;}
 
         @media screen and (max-width: 768px) {
             .main{
@@ -708,268 +735,313 @@
   <body>
     <div class="main">
     <!-- ヘッダーここから -->
-        <div class="header">
-            <h1 class="header1"><img src="./images/logo2.png" alt="驚額殿堂 Dendo of kyogaku" height="60"/></h1>
+        <header class="header" aria-label="サイトヘッダー">
+            <h1 class="header1">
+                <span class="sr-only">驚額の殿堂3（スリー）｜banana</span>
+                <img src="./images/logo2.png" alt="驚額殿堂 Dendo of kyogaku" height="60"/>
+            </h1>
             <div class="header2">
                 <div class="header-text">
                     <div class="kikan-date">
-                        <div class="toroku-kikan">※自己登録許可期間中んぽ</div>
-                        <div class="now-date" id="now-date"></div>
+                        <p class="toroku-kikan">※自己登録許可期間中んぽ</p>
+                        <p class="now-date"><time id="now-date"></time></p>
                     </div>
-                    <div class="header-conf">
-                        <div class="not-link">んぽたそ</div>
-                        <div class="text-border"></div>
-                        <div class="not-link">設定</div>
-                        <div class="text-border"></div>
+                    <div class="header-conf" aria-label="ユーザーメニュー">
+                        <span class="not-link" aria-disabled="true">んぽたそ</span>
+                        <span class="text-border" aria-hidden="true"></span>
+                        <span class="not-link" aria-disabled="true">設定</span>
+                        <span class="text-border" aria-hidden="true"></span>
                         <a href="./index.html">ログアウト</a>
                     </div>
                 </div>
-                <div class="header-icon"><img src="./images/npo_user.png" alt="ユーザーアイコン" height="45"/></div>
+                <div class="header-icon">
+                    <img src="./images/npo_user.png" alt="ユーザーアイコン" height="45"/>
+                </div>
             </div>
-        </div>
+        </header>
     <!-- ヘッダーここまで -->
 
     <!-- コンテンツここから -->
-        <div class="content">
-            <div class="top-bar">
+        <main class="content">
+            <!-- トップバー -->
+            <section class="top-bar" aria-label="トップバー">
                 <div class="top-bar1">
-                    <div class="my-page"><i class="fa-solid fa-user"></i>マイページ</div>
-                    <div class="courses"><i class="fa-solid fa-chalkboard-user"></i>　コース</div>
-                    <div class="courses"><font size="+1"><i class="fa-solid fa-newspaper"></i></font>　ンポートフォリオ</div>
-                </div>
-                <div class="top-bar2">
-                    <a href="./resnpo.html"><img class="resnpo" src="./images/resnpo_logo2.png" alt="resnpo" height="20"/></a>
-                    <div class="top-bar2-box"><i class="fa-solid fa-file-pen"></i>メモ一覧</div>
-                    <div class="top-bar2-box">English</div>
-                </div>
+                    <span class="my-page"><i class="u-lg fa-solid fa-user" aria-hidden="true"></i> マイページ</span>
+                    <span class="courses"><i class="u-lg fa-solid fa-chalkboard-user" aria-hidden="true"></i>　コース</span>
+                    <span class="courses"><i class="u-lg fa-solid fa-newspaper"></i>　ンポートフォリオ</span>
+                  </div>
+                  <div class="top-bar2">
+                    <a href="./resnpo.html">
+                      <img class="resnpo" src="./images/resnpo_logo2.png" alt="resnpo" height="20"/>
+                    </a>
+                    <span class="top-bar2-box"><i class="fa-solid fa-file-pen" aria-hidden="true"></i>メモ一覧</span>
+                    <span class="top-bar2-box">English</span>
+                  </div>
 
-            </div>
-            <div class ="middle-bar">
-                <div class="middle-bar-icon"><img src="./images/npo_user.png" alt="ユーザーロゴ" height="50"/></div>
+            </section>
+
+            <!-- ミドルバー -->
+            <section class="middle-bar" aria-label="ページ情報">
+                <div class="middle-bar-icon">
+                  <img src="./images/npo_user.png" alt="ユーザーロゴ" height="50"/>
+                </div>
                 <div class="middle-bar-contents">
-                    <div class="middle-bar-my-page"><span id="visitor-count" class="visitor dim">— 人目のお客様のマイページ</span></div>
+                    <p class="middle-bar-my-page">
+                        <span id="visitor-count" class="visitor dim">— 人目のお客様のマイページ</span>
+                    </p>
                     <div class="middle-bar-button-container">
-                        <div class="middle-bar-button selected">SNS➡︎</div>
-                        <div class="middle-bar-button-gap"></div>
+                        <span class="middle-bar-button selected">SNS➡︎</span>
+                        <div class="middle-bar-button-gap" aria-hidden="true"></div>
                         <a href="https://x.com/kyogaku_dendo" class="middle-bar-button">ツイッター</a>
                         <a href="https://www.instagram.com/kyogaku_dendo/" class="middle-bar-button">インスタグラム</a>
                         <a href="https://search.sohosai.com/vote" class="middle-bar-button">雙峰祭グランプリ</a>
-
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- めもバー -->
             <div class="memo-bar">
-                <div class="memo"><i class="fa-solid fa-file-pen"></i>メモ</div>
+                <p class="memo"><i class="fa-solid fa-file-pen"></i>メモ</p>
             </div>
+
+            <!-- アテンションバー -->
             <div class="attention-var">
-                <div class="attention"><i class="fa-solid fa-circle-exclamation"></i>ンポートフォリオにコレクションが追加されましたんぽ。</div>
+                <p class="attention"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>ンポートフォリオにコレクションが追加されましたんぽ。</p>
             </div>
+
+            <!-- メイングリッド -->
             <div class="main-grid">
-                <div class="main-grid-left">
+                <section class="main-grid-left" aria-label="左カラム">
                     <!-- ニュース -->
-                    <div class="message-container">
-                        <div class="news-label"><p>お知らせ</p></div>
+                    <section class="message-container" aria-labelledby="news-heading">
+                        <div class="news-label"><p id="news-heading">お知らせ</p></div>
                         <div class="news">
                             
-                            <div class="news-item"
-                              data-date="2025-10-12"
-                              data-content='
-                              驚額の殿堂 3（スリー）は今年もフランクフルトをうるんぽ！<br>
-                              11/2(日), 11/3(月) に人文社会学系棟前でやるんぽ<br>
-                              皆様のご来店をお待ちしておりますんぽ！<br><br>
-                              <a href="https://maps.app.goo.gl/SqM2Q7n6iJfy8fZD8">Googleマップでみる</a>'>
-                              <span class="news-date">2025-10-12</span>
-                              <span class="news-title"><font color="#ff4444"><i class="fa-solid fa-volume-high"></i>　</font><font size="+2">11/2~3 人文社会学系棟前</font> 雙峰祭でお待ちしてるんぽ！ </span>
-                            </div>
-                            <div class="news-item"
-                              data-date="2025-10-12"
-                              data-content='今年も雙峰祭グランプリがあるんぽ！ぜひ、「驚額の殿堂3（スリー）」に投票お願いするんぽ！<br>
-                              <a href="https://search.sohosai.com/vote">雙峰祭グランプリ投票フォーム</a>'>
-                              <span class="news-date">2025-10-12</span>
-                              <span class="news-title"><font color="#ff4444"><i class="fa-solid fa-volume-high"></i></font>　雙峰祭グランプリは「驚額の殿堂3（スリー）」に投票お願いするんぽ！</span>
-                            </div>
-                            
-                            <div class="news-item"
-                              data-date="2025-10-07"
-                              data-content='resnpoの番号はこれんぽ〜<br>110203228'>
-                              <span class="news-date">2025-10-07</span>
-                              <span class="news-title"><font color="#aaa"><i class="fa-solid fa-volume-high"></i></font>　resnpoの番号</span>
-                            </div>
+                            <article class="news-item"
+                            data-date="2025-10-12"
+                            data-content='
+                            驚額の殿堂 3（スリー）は今年もフランクフルトをうるんぽ！<br>
+                            11/2(日), 11/3(月) に人文社会学系棟前でやるんぽ<br>
+                            皆様のご来店をお待ちしておりますんぽ！<br><br>
+                            <a href="https://maps.app.goo.gl/SqM2Q7n6iJfy8fZD8">Googleマップでみる</a>'>
+                            <time class="news-date" datetime="2025-10-12">2025-10-12</time>
+                            <span class="news-title">
+                                <span class="text-danger"><i class="fa-solid fa-volume-high" aria-hidden="true"></i>　</span>
+                                <span class="news-deka">11/2~3 人文社会学系棟前</span> 雙峰祭でお待ちしてるんぽ！
+                            </span>
+                            </article>
+
+                            <article class="news-item"
+                            data-date="2025-10-12"
+                            data-content='今年も雙峰祭グランプリがあるんぽ！ぜひ、「驚額の殿堂3（スリー）」に投票お願いするんぽ！<br>
+                            <a href="https://search.sohosai.com/vote">雙峰祭グランプリ投票フォーム</a>'>
+                            <time class="news-date" datetime="2025-10-12">2025-10-12</time>
+                            <span class="news-title">
+                                <span class="text-danger"><i class="fa-solid fa-volume-high" aria-hidden="true"></i></span>　雙峰祭グランプリは「驚額の殿堂3（スリー）」に投票お願いするんぽ！
+                            </span>
+                            </article>
+
+                            <article class="news-item"
+                            data-date="2025-10-07"
+                            data-content='resnpoの番号はこれんぽ〜<br>110203228'>
+                            <time class="news-date" datetime="2025-10-07">2025-10-07</time>
+                            <span class="news-title">
+                                <span class="text-gray"><i class="fa-solid fa-volume-high" aria-hidden="true"></i></span>　resnpoの番号
+                            </span>
+                            </article>
                             
                             
                             <!-- モーダルウィンドウ -->
-                            <div class="news-modal" id="news-modal">
+                            <div class="news-modal" id="news-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-body">
                                 <div class="news-modal-content">
                                   <div class="news-modal-header">
                                     <h3 id="modal-title"></h3>
-                                    <span id="modal-date"></span>
+                                    <time id="modal-date"></time>
                                   </div>
                                   <div id="modal-body" class="modal-body"></div>
-                                  <div class="news-modal-close"><font color="#4d9d20">&times;</font>  閉じる</div>
+                                  <div class="news-modal-close"><span class="text-success" aria-hidden="true">&times;</span>  閉じる</div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
+
                     <!-- コース -->
-                    <div class="course-container">
-                        <div class="course-label"><p><font color="#529C09"><i class="fa-solid fa-chalkboard-user"></i></font>　コース一覧</p></div>
-                        <div class="course-change-container">
-                            <div class="course-change-container1">
-                                <div class="course-change-button selected">サムネイル</div>
-                                <div class="course-change-button">リスト</div>
-                            </div>
-                            <div class="course-change-container2">
-                                <select name="courses" id="courses-select">
-                                    <option value="">すべてのコース</option>
-                                    <option value="current">現在のコース</option>
-                                    <option value="past">過去のコース</option>
-                                    <option value="future">これからのコース</option>
-                                </select>
-                                <select name="years" id="year-select">
-                                    <option value="">すべての年度</option>
-                                    <option value="2025">2025年度</option>
-                                    <option value="2024">2024年度</option>
-                                    <option value="2023">2023年度</option>
-                                </select>
-                            </div>
+                    <section class="course-container" aria-labelledby="courses-heading">
+                        <div class="course-label">
+                          <p id="courses-heading"><span class="text-success"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></span>　コース一覧</p>
                         </div>
-                    </div>
-                    <div class="courses-grid">
-                        <article class="course-card" data-year="2025">
+          
+                        <div class="course-change-container" role="group" aria-label="表示切替と絞り込み">
+                          <div class="course-change-container1">
+                            <span class="course-change-button selected">サムネイル</span>
+                            <span class="course-change-button">リスト</span>
+                          </div>
+                          <div class="course-change-container2">
+                            <label>
+                              <span class="sr-only">コース区分</span>
+                              <select name="courses" id="courses-select">
+                                <option value="">すべてのコース</option>
+                                <option value="current">現在のコース</option>
+                                <option value="past">過去のコース</option>
+                                <option value="future">これからのコース</option>
+                              </select>
+                            </label>
+                            <label>
+                              <span class="sr-only">年度</span>
+                              <select name="years" id="year-select">
+                                <option value="">すべての年度</option>
+                                <option value="2025">2025年度</option>
+                                <option value="2024">2024年度</option>
+                                <option value="2023">2023年度</option>
+                              </select>
+                            </label>
+                          </div>
+                        </div>
+
+                        <div class="courses-grid" role="list">
+                            <article class="course-card" data-year="2025" role="listitem">
                             <img src="./images/NPTS.png" alt="NPTS" width="60">
                             <div class="labels">
-                              <div class="code">GENKA25<div class="star-icon"><i class="fa-solid fa-star"></i></div></div>
-                              <a class="title" href="./genka.html">原価</a>
-                              <div class="meta">2025　秋 <br><font color="#555">担当</font> 驚額の殿堂3(スリー)</div>
-                              <div class="meta">
-                                <font color="#94cc36"><i class="fa-regular fa-circle-play"></i></font>
-                                <span class="badge"><font color="##2449a8">movie</font></span>
-                                <font color="#ddd"><i class="fa-solid fa-volume-high"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-pen"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-file"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-message"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-user-check"></i></font>
-                              </div>
+                                <p class="code">GENKA25 <span class="star-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span></p>
+                                <a class="title" href="./genka.html">原価</a>
+                                <p class="meta">2025　秋 <br><span class="text-muted">担当</span> 驚額の殿堂3(スリー)</p>
+                                <p class="meta">
+                                <span class="text-success"><i class="text-play fa-regular fa-circle-play" aria-hidden="true"></i></span>
+                                <span class="badge"><span class="text-primary">movie</span></span>
+                                <span class="text-fade"><i class="fa-solid fa-volume-high" aria-hidden="true"></i></span>
+                                <span class="text-fade"><i class="fa-solid fa-pen" aria-hidden="true"></i></span>
+                                <span class="text-fade"><i class="fa-solid fa-file" aria-hidden="true"></i></span>
+                                <span class="text-fade"><i class="fa-solid fa-message" aria-hidden="true"></i></span>
+                                <span class="text-fade"><i class="fa-solid fa-user-check" aria-hidden="true"></i></span>
+                                </p>
                             </div>
-                        </article>
-                        <article class="course-card" data-year="2025">
+                            </article>
+
+                            <article class="course-card" data-year="2025" role="listitem">
                             <img src="./images/NPTS.png" alt="NPTS" width="60">
                             <div class="labels">
-                              <div class="code">DOUJIN25<div class="star-icon"><i class="fa-solid fa-star"></i></div></div>
-                              <a class="title" href="./doujin25.html">技術同人誌『フランクフルト』</a>
-                              <div class="meta">2025　秋 <br><font color="#555">担当</font> 驚額の殿堂3(スリー)</div>
-                              <div class="meta">
-                                <font color="#94cc36"><i class="fa-regular fa-circle-play"></i></font>
-                                <span class="badge"><font color="##2449a8">movie</font></span>
-                                <font color="#ddd"><i class="fa-solid fa-volume-high"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-pen"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-file"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-message"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-user-check"></i></font>
-                              </div>
+                                <p class="code">DOUJIN25 <span class="star-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span></p>
+                                <a class="title" href="./doujin25.html">技術同人誌『フランクフルト』</a>
+                                <p class="meta">2025　秋 <br><span class="text-muted">担当</span> 驚額の殿堂3(スリー)</p>
+                                <p class="meta">
+                                    <span class="text-success"><i class="text-play fa-regular fa-circle-play" aria-hidden="true"></i></span>
+                                    <span class="badge"><span class="text-primary">movie</span></span>
+                                    <span class="text-fade"><i class="fa-solid fa-volume-high" aria-hidden="true"></i></span>
+                                    <span class="text-fade"><i class="fa-solid fa-pen" aria-hidden="true"></i></span>
+                                    <span class="text-fade"><i class="fa-solid fa-file" aria-hidden="true"></i></span>
+                                    <span class="text-fade"><i class="fa-solid fa-message" aria-hidden="true"></i></span>
+                                    <span class="text-fade"><i class="fa-solid fa-user-check" aria-hidden="true"></i></span>
+                                </p>
                             </div>
-                        </article>
-                        <article class="course-card" data-year="2025">
+                            </article>
+
+                            <article class="course-card" data-year="2025" role="listitem">
                             <img src="./images/gallery_icon.png" alt="gallery" width="60">
                             <div class="labels">
-                                <div class="code">GALLERY<div class="star-icon"><i class="fa-solid fa-star"></i></div></div>
-                              <a class="title" href="./gallery.html">ギャラリー</a>
-                              <div class="meta">2025　秋 <br><font color="#555">担当</font> 驚額の殿堂3(スリー)</div>
-                              <div class="meta">
-                                <font color="#94cc36"><i class="fa-regular fa-circle-play"></i></font>
-                                <span class="badge"><font color="##2449a8">movie</font></span>
-                                <font color="#ddd"><i class="fa-solid fa-volume-high"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-pen"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-file"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-message"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-user-check"></i></font>
-                              </div>
+                                <p class="code">GALLERY <span class="star-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span></p>
+                                <a class="title" href="./gallery.html">ギャラリー</a>
+                                <p class="meta">2025　秋 <br><span class="text-muted">担当</span> 驚額の殿堂3(スリー)</p>
+                                <p class="meta">
+                                    <span class="text-success"><i class="text-play fa-regular fa-circle-play" aria-hidden="true"></i></span>
+                                    <span class="badge"><span class="text-primary">movie</span></span>
+                                    <span class="text-fade"><i class="fa-solid fa-volume-high" aria-hidden="true"></i></span>
+                                    <span class="text-fade"><i class="fa-solid fa-pen" aria-hidden="true"></i></span>
+                                    <span class="text-fade"><i class="fa-solid fa-file" aria-hidden="true"></i></span>
+                                    <span class="text-fade"><i class="fa-solid fa-message" aria-hidden="true"></i></span>
+                                    <span class="text-fade"><i class="fa-solid fa-user-check" aria-hidden="true"></i></span>
+                                </p>
                             </div>
-                        </article>
-                        <article class="course-card" data-year="2024">
+                            </article>
+
+                            <article class="course-card" data-year="2024" role="listitem">
                             <img src="./images/kyogaku-2024.png" alt="kyogaku web2024" width="60">
                             <div class="labels">
-                                <div class="code">NPTS24<div class="star-icon"><i class="fa-solid fa-star"></i></div></div>
-                              <a class="title" href="./2024/">昨年のページ</a>
-                              <div class="meta">2024　秋 <br><font color="#555">担当</font> 驚額の殿堂2(ツー)</div>
-                              <div class="meta">
-                                <font color="#94cc36"><i class="fa-regular fa-circle-play"></i></font>
-                                <span class="badge"><font color="##2449a8">movie</font></span>
-                                <font color="#ddd"><i class="fa-solid fa-volume-high"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-pen"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-file"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-message"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-user-check"></i></font>
-                              </div>
+                                <p class="code">NPTS24 <span class="star-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span></p>
+                                <a class="title" href="./2024/">昨年のページ</a>
+                                <p class="meta">2024　秋 <br><span class="text-muted">担当</span> 驚額の殿堂2(ツー)</p>
+                                <p class="meta">
+                                    <span class="text-success"><i class="text-play fa-regular fa-circle-play" aria-hidden="true"></i></span>
+                                    <span class="badge"><span class="text-primary">movie</span></span>
+                                    <span class="text-fade"><i class="fa-solid fa-volume-high" aria-hidden="true"></i></span>
+                                    <span class="text-fade"><i class="fa-solid fa-pen" aria-hidden="true"></i></span>
+                                    <span class="text-fade"><i class="fa-solid fa-file" aria-hidden="true"></i></span>
+                                    <span class="text-fade"><i class="fa-solid fa-message" aria-hidden="true"></i></span>
+                                    <span class="text-fade"><i class="fa-solid fa-user-check" aria-hidden="true"></i></span>
+                                </p>
                             </div>
-                        </article>
-                        <article class="course-card" data-year="2023">
+                            </article>
+
+                            <article class="course-card" data-year="2023" role="listitem">
                             <img src="./images/kyogaku-2023.png" alt="kyogaku web2023" width="60">
                             <div class="labels">
-                                <div class="code">NPTS23<div class="star-icon"><i class="fa-solid fa-star"></i></div></div>
-                              <a class="title" href="./2023/">一昨年のページ</a>
-                              <div class="meta">2023　秋 <br><font color="#555">担当</font> 驚額の殿堂</div>
-                              <div class="meta">
-                                <font color="#94cc36"><i class="fa-regular fa-circle-play"></i></font>
-                                <span class="badge"><font color="##2449a8">movie</font></span>
-                                <font color="#ddd"><i class="fa-solid fa-volume-high"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-pen"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-file"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-message"></i></font>
-                                <font color="#ddd"><i class="fa-solid fa-user-check"></i></font>
-                              </div>
+                                <p class="code">NPTS23 <span class="star-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span></p>
+                                <a class="title" href="./2023/">一昨年のページ</a>
+                                <p class="meta">2023　秋 <br><span class="text-muted">担当</span> 驚額の殿堂</p>
+                                <p class="meta">
+                                <span class="text-success"><i class="text-play fa-regular fa-circle-play" aria-hidden="true"></i></span>
+                                <span class="badge"><span class="text-primary">movie</span></span>
+                                <span class="text-fade"><i class="fa-solid fa-volume-high" aria-hidden="true"></i></span>
+                                <span class="text-fade"><i class="fa-solid fa-pen" aria-hidden="true"></i></span>
+                                <span class="text-fade"><i class="fa-solid fa-file" aria-hidden="true"></i></span>
+                                <span class="text-fade"><i class="fa-solid fa-message" aria-hidden="true"></i></span>
+                                <span class="text-fade"><i class="fa-solid fa-user-check" aria-hidden="true"></i></span>
+                                </p>
                             </div>
-                        </article>
-                    </div>
-                </div>
+                            </article>
+                        </div>
+                    </section>
+                </section>
+
                 <!-- 右側 -->
-                <div class="main-grid-right">
-                    <div class="works-container">
-                        <div class="works-label">
-                            <p><font color="#529C09"><i class="fa-solid fa-file"></i></font>　課題</p>
+                <aside class="main-grid-right" aria-label="右カラム">
+                    <section class="works-container" aria-labelledby="tasks-heading">
+                      <div class="works-label">
+                        <p id="tasks-heading"><span class="text-success text-green"><i class="fa-solid fa-file" aria-hidden="true"></i></span>　課題</p>
+                      </div>
+                      <div class="works-box">
+                        <div class="works-box-menu">
+                          <div class="works-box-label"><span class="text-play">&#9670;</span> 未提出課題</div>
                         </div>
-                        <div class="works-box">
-                            <div  class="works-box-menu">
-                                <div class="works-box-label"> <font color="#c9e99b">&#9670; </font> 未提出課題</div>
-                            </div>
-                            <div class="works-link">＞ 未提出課題一覧</div>
+                        <div class="works-link">＞ 未提出課題一覧</div>
+                      </div>
+                      <div class="works-box">
+                        <div class="works-box-menu">
+                          <div class="works-box-label"><span class="text-play">&#9670;</span> 提出記録</div>
                         </div>
-                        <div class="works-box">
-                            <div  class="works-box-menu">
-                                <div class="works-box-label"> <font color="#c9e99b">&#9670; </font>  提出記録</div>
-                            </div>
-                            <div class="works-link">＞ 全て表示</div>
-                        </div>
-                    </div>
-                    <div class="toroku-container">
-                        <div class="toroku-label"> <font color="#c9e99b">&#9670; </font>  自己破産について</div>
-                        <p>債務の返済が困難な場合は、裁判所に申立てを行い、自己破産の手続きを開始してください。<br>
-                            自己破産の申立てを行わないまま支払いを放置すると、債権者からの取立てや差押えなどが継続するおそれがあります。</p>
-                            <div class="toroku-link not-link">＞ 裁判所に申し立て手続き</div>
-                            <div class="toroku-link not-link">＞ 取り立て差し押さえについて</div>
-                    </div>
+                        <div class="works-link">＞ 全て表示</div>
+                      </div>
+                    </section>
+        
+                    <section class="toroku-container" aria-labelledby="bankrupt-heading">
+                      <div class="toroku-label"><span class="text-green">&#9670;</span> <span id="bankrupt-heading">自己破産について</span></div>
+                      <p>
+                        債務の返済が困難な場合は、裁判所に申立てを行い、自己破産の手続きを開始してください。<br>
+                        自己破産の申立てを行わないまま支払いを放置すると、債権者からの取立てや差押えなどが継続するおそれがあります。
+                      </p>
+                      <div class="toroku-link not-link">＞ 裁判所に申し立て手続き</div>
+                      <div class="toroku-link not-link">＞ 取り立て差し押さえについて</div>
+                    </section>
+                  </aside>
                 </div>
-            </div>
-        </div>
+            </main>
     <!-- コンテンツここまで -->
 
 
 
     <!-- フッターここから -->
-    <div class="footer">
+    <footer class="footer">
         <div class="footer1">
-            <div class="ver-rights">
-                <div class="banana-version">banana 3.141592</div>
-                <div class="copy-right">Copyright (C) 2025 驚額の殿堂</div>
-            </div>
-            <div class="footer-text not-link">マニュアル パーソナルデータについて</div>
+          <div class="ver-rights">
+            <div class="banana-version">banana 3.141592</div>
+            <div class="copy-right">Copyright (C) 2025 驚額の殿堂</div>
+          </div>
+          <div class="footer-text not-link">マニュアル パーソナルデータについて</div>
         </div>
-        
         <div class="footer2">
-            powered by 
-            <div class="footer-icon"><img src="./images/logo3.png" alt="Dendo of kyogaku" height="45"/></div>
+          powered by 
+          <div class="footer-icon"><img src="./images/logo3.png" alt="Dendo of kyogaku" height="45"/></div>
         </div>
-    </div>
+      </footer>
     <!-- フッターここまで -->
     </div>
     
