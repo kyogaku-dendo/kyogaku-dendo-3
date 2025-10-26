@@ -401,6 +401,49 @@
         .course-meta2-desc-text{margin: 0 auto}
         .text-gray{color:#ddd; font-size: 1.25em;}
 
+        .contents-card{
+            background-color: #eeeeee;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .card-item{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 200px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 14px 16px;
+        }
+        .card-icon{
+            color: #55a308;
+            font-size: 1.6em;
+            flex-shrink: 0;
+        }
+        .card-text{
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        .card-title{
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+        }
+        .card-subtitle{
+            font-size: 12px;
+            color: #666;
+        }
+
         @media screen and (max-width: 768px) {
             .main{
                 width: 658px;
@@ -504,7 +547,22 @@
             <section class="main-container">
                 <h2>んぽたそゲーム</h2>
                 <p>んぽたそ お手製のゲームが遊べるんぽ！</p>
-                
+                <div class="contents-card">
+                    <div class="card-item">
+                        <i class="fa-solid fa-newspaper card-icon" aria-hidden="true"></i>
+                        <div class="card-text">
+                            <span class="card-title">講義資料</span>
+                            <span class="card-subtitle">2025</span>
+                        </div>
+                    </div>
+                    <div class="card-item">
+                        <i class="fa-solid fa-newspaper card-icon" aria-hidden="true"></i>
+                        <div class="card-text">
+                            <span class="card-title">講義資料</span>
+                            <span class="card-subtitle">2025</span>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     <!-- コンテンツここまで -->
