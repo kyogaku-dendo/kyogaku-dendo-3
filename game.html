@@ -456,6 +456,17 @@
             color: #666;
         }
 
+        .contents-card a,
+        .contents-card a:visited,
+        .contents-card a:hover,
+        .contents-card a:focus {
+            text-decoration: none;
+            color: inherit;
+        }
+        .contents-card a {
+            display: inline-block;
+        }
+
         @media screen and (max-width: 768px) {
             .main{
                 width: 658px;
@@ -561,20 +572,24 @@
                 <p>んぽたそ お手製のゲームが遊べるんぽ！</p>
                 <div class="contents-card-header"><i class="fa-solid fa-book" aria-hidden="true" style="margin-right: 5px;"></i>コンテンツ</div>
                 <div class="contents-card">
-                    <div class="card-item">
-                        <i class="fa-solid fa-newspaper card-icon" aria-hidden="true"></i>
-                        <div class="card-text">
-                            <span class="card-title">壁破りゲーム</span>
-                            <span class="card-subtitle">2025</span>
+                    <a href="https://kabeyaburi.lapla.dev" target="_blank" rel="noopener">
+                        <div class="card-item">
+                            <i class="fa-solid fa-newspaper card-icon" aria-hidden="true"></i>
+                            <div class="card-text">
+                                <span class="card-title">壁破りゲーム</span>
+                                <span class="card-subtitle">2025</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-item">
-                        <i class="fa-solid fa-newspaper card-icon" aria-hidden="true"></i>
-                        <div class="card-text">
-                            <span class="card-title">意味あるない.com</span>
-                            <span class="card-subtitle">2025</span>
+                    </a>
+                    <a href="https://imi.lapla.workers.dev" target="_blank" rel="noopener">
+                        <div class="card-item">
+                            <i class="fa-solid fa-newspaper card-icon" aria-hidden="true"></i>
+                            <div class="card-text">
+                                <span class="card-title">意味あるない.com</span>
+                                <span class="card-subtitle">2025</span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </section>
         </main>
