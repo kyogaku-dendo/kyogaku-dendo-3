@@ -404,7 +404,6 @@
         .contents-card{
             background-color: #eeeeee;
             border: 1px solid #ddd;
-            border-radius: 4px;
             padding: 20px;
             margin: 20px 0;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -412,13 +411,26 @@
             flex-wrap: wrap;
             gap: 10px;
             align-items: flex-start;
+            margin-top: 0; /* align with header bar above */
+        }
+
+        .contents-card-header{
+            display: block;
+            height: 30px;
+            background-color: #DBF6BD;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            border-top: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            margin-bottom: 0;
+            padding-left: 8px;
         }
 
         .card-item{
             display: flex;
             align-items: center;
             gap: 12px;
-            width: 200px;
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 6px;
@@ -547,18 +559,19 @@
             <section class="main-container">
                 <h2>んぽたそゲーム</h2>
                 <p>んぽたそ お手製のゲームが遊べるんぽ！</p>
+                <div class="contents-card-header"><i class="fa-solid fa-book" aria-hidden="true" style="margin-right: 5px;"></i>コンテンツ</div>
                 <div class="contents-card">
                     <div class="card-item">
                         <i class="fa-solid fa-newspaper card-icon" aria-hidden="true"></i>
                         <div class="card-text">
-                            <span class="card-title">講義資料</span>
+                            <span class="card-title">壁破りゲーム</span>
                             <span class="card-subtitle">2025</span>
                         </div>
                     </div>
                     <div class="card-item">
                         <i class="fa-solid fa-newspaper card-icon" aria-hidden="true"></i>
                         <div class="card-text">
-                            <span class="card-title">講義資料</span>
+                            <span class="card-title">意味あるない.com</span>
                             <span class="card-subtitle">2025</span>
                         </div>
                     </div>
