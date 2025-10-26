@@ -1,0 +1,540 @@
+<!doctype html>
+<html>
+  <head>
+    <title>驚額の殿堂3（スリー） | banana(バナナ) - 技術同人誌 </title>
+    <meta charset="utf-8" />
+    <meta name="description" content="焼きそばホグワーツの教育支援システム" />
+    <meta name="keywords" content="雙峰祭, フランクフルト, 驚額の殿堂,banana">
+    <meta name="viewport" content="width=720">
+
+    <meta property="og:title" content="驚額の殿堂3（スリー）| んぽたそゲーム" />
+    <meta property="og:description" content="んぽたそお手製のゲームが遊べるんぽ！" />
+    <meta property="og:image" content="https://kyogaku.yokohama.dev/images/gallery/frank.webp" />
+    <meta property="og:url" content="https://kyogaku.yokohama.dev/game.html" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="驚額の殿堂3（スリー）| んぽたそゲーム" />
+    <meta name="twitter:description" content="んぽたそお手製のゲームが遊べるんぽ！" />
+    <meta name="twitter:image" content="https://kyogaku.yokohama.dev/images/gallery/frank.webp" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        body{
+            background-color: #fff;
+            font-size: 12px;
+            font-family: 'ヒラギノ角ゴ Pro W3', 'Arial', 'メイリオ', Verdana, 'ＭＳ Ｐゴシック', sans-serif;
+            color: #000;
+            margin: 0;
+        }
+
+        .main{
+            width: 950px;
+            margin: 0 auto;
+        }
+
+        .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;  
+        }
+
+        h1{
+            padding:0;
+            margin:0;
+            line-height:1.0;
+        }
+
+        .header1 {
+            text-align: center;
+        }
+        .header2 {
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            align-items: center; 
+        }
+
+        .kikan-date{
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            align-items: right;  
+        }
+
+        .toroku-kikan{
+            color:#f00;
+            font-size: 12px;
+            padding-right: 40px;
+        }
+
+        .now-date{
+            color:#555;
+            font-size: 12px;
+        }
+
+        .header-conf{
+            display: flex;
+            font-size: 12px;
+            color: #0000dd;
+            justify-content: flex-end;
+        }
+        .header-conf a{
+            text-decoration: none;
+        }
+        .text-border{
+            border: 1px solid #aaa;
+            height: 14px;
+            margin: auto 10px;
+        }
+
+        .header-icon{
+            padding: 5px;
+        }
+
+        /*フッターここから*/
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;  
+        }
+
+        .footer1 {
+            display: flex;
+            align-items: end;
+        }
+
+        .ver-rights{
+            justify-content: space-between;
+            align-items: center; 
+            color: #aaa;
+            font-size: 12px;
+            text-align: left;
+        }
+        .copy-right{
+            font-size: 10px;
+        }
+        .footer-text{
+            color: #0000dd;
+        }
+        .footer2 {
+            display: flex;
+            color: #aaa;
+            font-size: 12px;
+            align-items: center;
+        }
+        /*フッターここまで*/
+        
+
+        /*コンテンツここから*/
+        .content{
+            border: 1px solid #ddd;
+        }
+
+        .top-bar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(#fff, #ddd);
+            height:29px; 
+            border-bottom: 4px solid #55a308; 
+            font-weight: bold;
+        }
+
+        .top-bar1{
+            display: flex;
+            height: 100%;
+        }
+
+        .my-page{
+            height: 60%;
+            color:#fff;
+            background-color: #55a308;
+            padding: 4px 12px 5px 12px;
+            text-decoration: none;
+            border-start-start-radius: 3px;
+            border-start-end-radius: 3px;
+            margin:3px 10px auto 10px;
+            box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .my-page:hover{
+            background: linear-gradient(#7cc41a,#55a308);
+        }
+
+        .courses{
+            color: #666;
+            text-decoration: none;
+            height: 100%;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            display: flex;             
+            justify-content: center;    
+            align-items: center;        
+            text-align: center;
+            margin: auto 0;
+            padding: 0 20px;
+        }
+
+        .course-selected{
+            color: #55a308;
+            background: linear-gradient(#f9fdf2,#cce4a5);
+        }
+        /*.courses:hover{
+            color: #55a308;
+            background: linear-gradient(#f9fdf2,#cce4a5);
+        }*/
+
+
+        .top-bar2{
+            display: flex;             
+            justify-content: center;    
+            align-items: center;        
+            text-align: center;
+        }
+
+        .resnpo{
+            background-color: #fff;
+            padding-left: 8px;
+            padding-right: 8px;
+            border-radius: 3px;
+            border: 1px solid #f08301;
+            margin-top: 2px;
+            margin-right: 20px;
+        }
+        .resnpo:hover{
+            background-color: #fff2bb;
+        }
+
+        .top-bar2-box{
+            display: flex;             
+            justify-content: center;    
+            align-items: center;        
+            text-align: center;
+            width:80px;
+            height:20px;
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            color:#777;
+            margin-right:10px;
+        }
+
+        /*.top-bar2-box:hover{
+            color: #2449a8;
+            background: linear-gradient(#fff,#eee);
+        }*/
+
+        .middle-bar{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            background: linear-gradient(#fff, #f0f0f0);
+            height:100px; 
+            border-bottom: 6px double #ddd;
+        }
+
+        .middle-bar-icon img{
+            margin-left: 30px;
+            margin-right: 10px;
+            margin-top: -16px;
+            border: 2px solid #aaa;
+        }
+
+        .middle-bar-contents{
+            height:100%;
+            width: 100%;
+        }
+
+        .course-meta{
+            display: flex;
+            justify-content: space-between;
+            height: 55%;
+        }
+
+        .middle-bar-course-number{
+            color:#aaa;
+            font-size: 11px;
+        }
+
+        .middle-bar-course-name{
+            color:#0000dd;
+            display: flex;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .middle-bar-course-name:hover{
+            text-decoration:underline;
+        }
+
+
+        .course-meta2{
+            display: flex;
+        }
+
+        .course-meta2-movie{
+            border-right: 3px solid #ddd;
+            padding-right: 60px;
+            padding-top: 10px;
+            font-size: 13px; color:#000; 
+        }
+
+        .course-meta2-desc{
+            margin: 10px 20px auto 10px;
+            align-items: baseline;
+            font-size: 12px; color:#111; 
+        }
+
+        .middle-bar-button-container{
+            margin-top:12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .middle-bar-button-container1 ,.middle-bar-button-container2{
+            display: flex;
+            justify-content: space-between;
+            margin-right :30px;
+        }
+        .middle-bar-button, .middle-bar-button2{
+            background: linear-gradient(#fff, #eee);
+            color:#333;
+            font-size: 11px;
+            font-weight:bold;
+            display: flex;
+            height:24px;
+            border: 1px solid #ddd;
+            margin-top:8px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 6px double #ddd;
+            box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+
+        .middle-bar-button{
+            width: 85px;
+        }
+        .middle-bar-button2{
+            width: 130px;
+        }
+
+
+        .middle-bar-button-container .selected{
+            background: linear-gradient(#fff, #dcefbb);
+            color:#4d9d20;
+            border-bottom: 4px solid #94cc36;
+        }
+        /*.middle-bar-button:hover,.middle-bar-button2:hover {
+            background: linear-gradient(#fff, #dcefbb);
+            color:#4d9d20;
+            border-bottom: 4px solid #94cc36;
+        }
+
+        .middle-bar-button2:hover i{
+            color:#4d9d20;
+        }*/
+
+        .middle-bar-button-gap{
+            margin-left:10px;
+        }
+
+        .main-container{
+            width: 90%;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        .article{
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .main-container ul {
+            list-style: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        .title {
+        position: relative;
+        display: inline-flex;  
+        align-items: center;
+        gap: .5em;   
+        font-size: 24px;             
+        }
+
+        .title::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #55a308;
+        flex: 0 0 auto;
+        }
+
+        .bar{
+            border: 1px solid black;
+            width: 20px;
+            margin: 0 20px;
+        }
+
+        .author{
+            font-size: 16px;
+        }
+
+        .not-link{
+            color: #aaa;
+        }
+
+        .toroku-kikan{
+            margin:0 auto;
+        }
+
+        .u-lg{ font-size: 1.25em; }
+        .middle-bar-course-number{margin:0 auto;}
+        .middle-bar-course-name{margin:0 auto;}
+        .text-green{color:#94cc36;}
+        .text-blue{color:#2449a8;}
+        .course-meta2-movie{margin:0 auto;}
+        .course-meta2-desc-text{margin: 0 auto}
+        .text-gray{color:#ddd; font-size: 1.25em;}
+
+        @media screen and (max-width: 768px) {
+            .main{
+                width: 658px;
+                margin: 0 auto;
+            }
+
+            .middle-bar-contents{
+                width: 87%;
+            }
+            .middle-bar-button-container1{
+                margin-left : -80px;
+                margin-right : 10px;
+            }
+            .middle-bar-button {
+                width: 70px;
+            }
+            .courses{
+                padding: 0 10px;
+            }
+        }
+        /*コンテンツここまで*/
+    </style>
+
+  </head>
+  <body>
+    <div class="main">
+        <!-- ヘッダーここから -->
+            <header class="header">
+                <h1 class="header1"><img src="./images/logo2.png" alt="驚額殿堂 Dendo of kyogaku" height="60"/></h1>
+                <div class="header2">
+                    <div class="header-text">
+                        <div class="kikan-date">
+                            <p class="toroku-kikan">※自己登録許可期間中んぽ</p>
+                            <time class="now-date" id="now-date"></time>
+                        </div>
+                        <div class="header-conf">
+                            <span class="not-link">んぽたそ</span>
+                            <span class="text-border" aria-hidden="true"></span>
+                            <span class="not-link">設定</span>
+                            <span class="text-border" aria-hidden="true"></span>
+                            <a href="./index.html">ログアウト</a>
+                        </div>
+                    </div>
+                    <div class="header-icon"><img src="./images/npo_user.png" alt="ユーザーアイコン" height="45"/></div>
+                </div>
+            </header>
+        <!-- ヘッダーここまで -->
+    
+        <!-- コンテンツここから -->
+            <main class="content">
+                <section class="top-bar" aria-label="トップバー">
+                    <div class="top-bar1">
+                        <a href="./banana-home.html" class="my-page"><i class="u-lg fa-solid fa-user"></i>マイページ</a>
+                        <span class="courses course-selected"><i class="u-lg fa-solid fa-chalkboard-user"></i>　コース</span>
+                        <span class="courses"><i class="u-lg fa-solid fa-newspaper"></i>　ンポートフォリオ</span>
+                    </div>
+                    <div class="top-bar2">
+                        <a href="./resnpo.html">
+                          <img class="resnpo" src="./images/resnpo_logo2.png" alt="resnpo" height="20">
+                        </a>
+                        <span class="top-bar2-box"><i class="fa-solid fa-file-pen" aria-hidden="true"></i>メモ一覧</span>
+                        <span class="top-bar2-box">English</span>
+                    </div>
+                </section>
+    
+                <section class="middle-bar" aria-label="コースヘッダー">
+                    <div class="middle-bar-icon"><img src="./images/never-stop-npotaso.png" alt="running npotaso" height="50"/></div>
+                    <div class="middle-bar-contents">
+                        <div class="course-meta">
+                            <div class="course-meta1">
+                                <p class="middle-bar-course-number">GAME25</p>
+                                <p class="middle-bar-course-name">んぽたそゲーム</p>
+                            </div>
+                            <div class="course-meta2">
+                                <p class="course-meta2-movie">
+                                        <span class="text-green"><i class="fa-regular fa-circle-play"></i></span>
+                                        <span class="badge"><span class="text-blue">movie</span></span>
+                                </p>
+                                <div class="course-meta2-desc">
+                                    <p class="course-meta2-desc-text">担当: 驚額の殿堂3（スリー）</p>
+                                    <p class="course-meta2-desc-text">2025 秋</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="middle-bar-button-container">
+                            <div class="middle-bar-button-container1">
+                                <span class="middle-bar-button">小テスト</span>
+                                <span class="middle-bar-button">アンケート</span>
+                                <span class="middle-bar-button">レポート</span>
+                                <span class="middle-bar-button">プロジェクト</span>
+                                <span class="middle-bar-button">成　績</span>
+                            </div>
+                            <div class="middle-bar-button-container2">
+                                <span class="middle-bar-button2"><i class="text-gray fa-solid fa-comments"></i>　掲示板</span>
+                                <span class="middle-bar-button2"><i class="text-gray fa-solid fa-book-open"></i>　コースコンテンツ</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            <section class="main-container">
+                <h2>んぽたそゲーム</h2>
+                <p>んぽたそ お手製のゲームが遊べるんぽ！</p>
+                
+            </section>
+        </main>
+    <!-- コンテンツここまで -->
+    <!-- フッターここから -->
+    <footer class="footer">
+        <div class="footer1">
+          <div class="ver-rights">
+            <div class="banana-version">banana 3.141592</div>
+            <div class="copy-right">Copyright (C) 2025 驚額の殿堂</div>
+          </div>
+          <div class="footer-text not-link">マニュアル パーソナルデータについて</div>
+        </div>
+        <div class="footer2">
+          powered by 
+          <div class="footer-icon"><img src="./images/logo3.png" alt="Dendo of kyogaku" height="45"/></div>
+        </div>
+      </footer>
+    <!-- フッターここまで -->
+    </div>
+    
+    <script>
+        // 日付の表示
+        const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+        const date = String(now.getDate()).padStart(2, "0");
+        const day = weekdays[now.getDay()];
+        const formattedDate = `${year}-${month}-${date} (${day})`;
+        document.getElementById("now-date").textContent = formattedDate;
+    </script>
+  </body>
+</html>
