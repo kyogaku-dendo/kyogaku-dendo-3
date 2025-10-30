@@ -639,6 +639,7 @@
             align-items: center;
             justify-content: end;
             margin-right: 20px;
+            font-size: 1.2em;
         }
 
         .toroku-container{
@@ -685,6 +686,52 @@
             color: #aaa;
         }
 
+        .hutokyaku{
+            border-top: 1px solid #eee;       
+            width: 95%;
+            margin: 0 auto 5px;
+        }
+
+        .hutokyaku-label{
+            color:#2e7c40;
+            font-weight: bold;
+            padding: 5px 0;
+        }
+
+        .hutokyaku-name{
+            font-weight: bold;
+            margin-left: 20px;
+            padding: 5px 0;
+            line-height: 1.3;
+        }
+
+        .signage-name{
+            font-weight: bold;
+            margin-left: 20px;
+            padding: 5px 0;
+            line-height: 1.3;
+        }
+
+        .a-non{
+            color:#2449a8; 
+            text-decoration: none;
+        }
+
+        .a-non:hover{
+            text-decoration:underline;
+        }
+
+        .no1{
+            font-size: 18px;
+        }
+
+        .no2{
+            font-size: 16px;
+        }
+        .no3{
+            font-size: 14px;
+        }
+
         .text-danger{ color:#f00; }
         .text-muted{ color:#555; }
         .text-primary{ color:#2449a8; }
@@ -693,6 +740,7 @@
         .u-lg{ font-size: 1.25em; }
         .text-fade{color: #ddd;}
         .text-play{color:#94cc36;}
+        .text-y-green{color: #c9e99b;}
 
         @media screen and (max-width: 768px) {
             .main{
@@ -1000,7 +1048,7 @@
                             <img src="./images/kyogaku-2024.webp" alt="kyogaku web2024" width="60">
                             <div class="labels">
                                 <p class="code">NPTS24 <span class="star-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span></p>
-                                <a class="title" href="./2024/">昨年のページ</a>
+                                <a class="title" href="./2024/index.html">昨年のページ</a>
                                 <p class="meta">2024　秋 <br><span class="text-muted">担当</span> 驚額の殿堂2(ツー)</p>
                                 <p class="meta">
                                     <span class="text-success"><i class="text-play fa-regular fa-circle-play" aria-hidden="true"></i></span>
@@ -1018,7 +1066,7 @@
                             <img src="./images/kyogaku-2023.webp" alt="kyogaku web2023" width="60">
                             <div class="labels">
                                 <p class="code">NPTS23 <span class="star-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span></p>
-                                <a class="title" href="./2023/">一昨年のページ</a>
+                                <a class="title" href="./2023/index.html">一昨年のページ</a>
                                 <p class="meta">2023　秋 <br><span class="text-muted">担当</span> 驚額の殿堂</p>
                                 <p class="meta">
                                 <span class="text-success"><i class="text-play fa-regular fa-circle-play" aria-hidden="true"></i></span>
@@ -1039,19 +1087,37 @@
                 <aside class="main-grid-right" aria-label="右カラム">
                     <section class="works-container" aria-labelledby="tasks-heading">
                       <div class="works-label">
-                        <p id="tasks-heading"><span class="text-success text-green"><i class="fa-solid fa-file" aria-hidden="true"></i></span>　課題</p>
+                        <p id="tasks-heading"><span class="text-success text-green"><i class="fa-solid fa-file" aria-hidden="true"></i></span>　What's new!</p>
                       </div>
                       <div class="works-box">
                         <div class="works-box-menu">
-                          <div class="works-box-label"><span class="text-play">&#9670;</span> 未提出課題</div>
+                            <p class="works-box-label border-line"> <span class="text-y-green">&#9670; </span> 太客（サポーターズ）</p>
+                            
+                            <div class="hutokyaku">
+                                <p class="hutokyaku-label">めっちゃ凄い人</p>
+                                <p class="hutokyaku-name no1"></p>
+                            </div>
+                            <div class="hutokyaku">
+                                <p class="hutokyaku-label">その次に凄い人</p>
+                                <p class="hutokyaku-name no2"></p>
+                            </div>
+                            <div class="hutokyaku">
+                                <p class="hutokyaku-label">頑張った人</p>
+                                <p class="hutokyaku-name no3"></p>
+                            </div>
+
                         </div>
-                        <div class="works-link">＞ 未提出課題一覧</div>
+                        <a href="./supporters.html" class="works-link">＞ 太客一覧</a>
                       </div>
                       <div class="works-box">
                         <div class="works-box-menu">
-                          <div class="works-box-label"><span class="text-play">&#9670;</span> 提出記録</div>
+                            <p class="works-box-label border-line"> <span class="text-y-green">&#9670; </span> デジタルサイネージ</p>
+
+                            <div class="hutokyaku">
+                                <div class="signage-name no2"><a class="a-non" href="./signage.html">現在のデジタルサイネージを確認する</a></div>
+                            </div>
+                            
                         </div>
-                        <div class="works-link">＞ 全て表示</div>
                       </div>
                     </section>
         
@@ -1178,6 +1244,41 @@
             card.style.display = (selectedYear === "" || year === selectedYear) ? "" : "none";
         });
         });
+
+
+        async function loadTopSupporters() {
+        try {
+            const res = await fetch("https://sora.workers.yukari.uk/api/v0/futokyakus");
+            const data = await res.json();
+
+            const sorted = data.futokyakus.sort((a, b) => b.tipAmount - a.tipAmount);
+
+            const top3 = sorted.slice(0, 3);
+
+            const rankEls = [
+            document.querySelector(".hutokyaku-name.no1"),
+            document.querySelector(".hutokyaku-name.no2"),
+            document.querySelector(".hutokyaku-name.no3"),
+            ];
+
+            rankEls.forEach((el, i) => {
+            if (top3[i]) {
+                el.textContent = top3[i].name;
+            } else {
+                el.textContent = "まだいないんぽ〜";
+            }
+            });
+        } catch (err) {
+            console.error("太客データ取得エラー:", err);
+            document.querySelectorAll(".hutokyaku-name").forEach(el => {
+            el.textContent = "まだいないんぽ〜";
+            });
+        }
+        }
+
+        // ページ読み込み時に実行
+        loadTopSupporters();
+
     </script>
   </body>
 </html>

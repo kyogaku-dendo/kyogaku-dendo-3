@@ -1,20 +1,20 @@
 <!doctype html>
 <html>
   <head>
-    <title>驚額の殿堂3（スリー） | banana(バナナ) - 注文方法 </title>
+    <title>驚額の殿堂3（スリー） | banana(バナナ) - デジタルサイネージ </title>
     <meta charset="utf-8" />
     <meta name="description" content="焼きそばホグワーツの教育支援システム" />
     <meta name="keywords" content="雙峰祭, フランクフルト, 驚額の殿堂,banana">
     <meta name="viewport" content="width=720">
 
-    <meta property="og:title" content="驚額の殿堂3（スリー）| 注文方法" />
-    <meta property="og:description" content="ことしの注文方法を教えるんぽ！" />
+    <meta property="og:title" content="驚額の殿堂3（スリー）| デジタルサイネージ" />
+    <meta property="og:description" content="デジタルサイネージが確認できるんぽ〜！" />
     <meta property="og:image" content="https://kyogaku.yokohama.dev/images/gallery/frank.webp" />
     <meta property="og:url" content="https://kyogaku.yokohama.dev/doujin25.html" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="驚額の殿堂3（スリー）| 注文方法" />
-    <meta name="twitter:description" content="ことしの注文方法を教えるんぽ！" />
+    <meta name="twitter:title" content="驚額の殿堂3（スリー）| デジタルサイネージ" />
+    <meta name="twitter:description" content="デジタルサイネージが確認できるんぽ〜！" />
     <meta name="twitter:image" content="https://kyogaku.yokohama.dev/images/gallery/frank.webp" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -346,26 +346,44 @@
             text-align: center;
         }
 
+        .article{
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
         .main-container ul {
             list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-        .article{
-            width: 100%;
+            padding-left: 0;
+            margin-left: 0;
         }
 
-        .pics{
-            display: inline-block; 
-            width: auto;         
-            width: 100%;       
-            height: auto;
+        .title {
+        position: relative;
+        display: inline-flex;  
+        align-items: center;
+        gap: .5em;   
+        font-size: 24px;             
         }
 
-        .pics-border{
-            border: solid 1px #aaa;
+        .title::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #55a308;
+        flex: 0 0 auto;
         }
 
+        .bar{
+            border: 1px solid black;
+            width: 20px;
+            margin: 0 20px;
+        }
+
+        .author{
+            font-size: 16px;
+        }
 
         .not-link{
             color: #aaa;
@@ -375,12 +393,36 @@
             margin:0 auto;
         }
 
-        h2{
-            font-size: 40px;
+        .pics{
+            width: 100%;      
         }
 
-        .uketori{
-            padding-top: 120px;
+        .update-button{
+            width: 10em;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #7cc41a;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+        .update-button:hover{
+            background-color: #dcefbb;
+        }
+
+
+        .gap-space{
+            margin: 40px 0;
+        }
+
+        .attention{
+            font-size: 1.1em;
+            margin-bottom: 50px;
         }
 
         .u-lg{ font-size: 1.25em; }
@@ -458,12 +500,12 @@
                 </section>
     
                 <section class="middle-bar" aria-label="コースヘッダー">
-                    <div class="middle-bar-icon"><img src="./images/how-to-buy.webp" alt="注文方法" height="50"/></div>
+                    <div class="middle-bar-icon"><img src="./images/NPTS.webp" alt="NPTS" height="50"/></div>
                     <div class="middle-bar-contents">
                         <div class="course-meta">
                             <div class="course-meta1">
-                                <p class="middle-bar-course-number">HOWTOBUY</p>
-                                <p class="middle-bar-course-name">注文方法</p>
+                                <p class="middle-bar-course-number">SIGNAGE</p>
+                                <p class="middle-bar-course-name">デジタルサイネージ</p>
                             </div>
                             <div class="course-meta2">
                                 <p class="course-meta2-movie">
@@ -493,37 +535,9 @@
                     </div>
                 </section>
             <section class="main-container">
-                <h2>注文方法</h2>
-                <ul>
-                    <li class="article">
-                        <img class="pics" src="./images/howto1.webp" alt="①店頭のQRを読んで注文ページに飛ぶんぽ！" />
-                    </li>
-                    <li class="article">
-                        <img class="pics" src="./images/howto2.webp" alt="②買いたい商品を選ぶんぽ！" />
-                    </li>
-                    <li class="article">
-                        <img class="pics" src="./images/howto3.webp" alt="③『注文を送信』を押して注文を確定するんぽ！" />
-                    </li>
-                </ul>
-                
-                <h2 class="uketori">商品の受け取り</h2>
-                <ul>
-                    <li class="article">
-                        <img class="pics pics-border" src="./images/waiting1.webp" alt="①店頭のQRを読んで注文ページに飛ぶんぽ！" />
-                    </li>
-                    <li class="article">
-                        <img class="pics pics-border" src="./images/waiting2.webp" alt="①店頭のQRを読んで注文ページに飛ぶんぽ！" />
-                    </li>
-                    <li class="article">
-                        <img class="pics pics-border" src="./images/waiting3.webp" alt="①店頭のQRを読んで注文ページに飛ぶんぽ！" />
-                    </li>
-                    <li class="article">
-                        <img class="pics pics-border" src="./images/waiting4.webp" alt="①店頭のQRを読んで注文ページに飛ぶんぽ！" />
-                    </li>
-                    <li class="article">
-                        <img class="pics pics-border" src="./images/waiting5.webp" alt="①店頭のQRを読んで注文ページに飛ぶんぽ！" />
-                    </li>
-                </ul>
+                <img class="pics" src="https://renbai-counter.yokohama.dev/screenshot" alt="デジタルサイネージ" />
+                <div class="gap-space"><a href="./signage.html" class="update-button">最新情報に更新する</a></div>
+                <p class="attention">毎分更新されるんぽ！リアルタイムで見たい場合は店頭のデジタルサイネージを確認して欲しいんぽ！</p>
             </section>
         </main>
     <!-- コンテンツここまで -->
