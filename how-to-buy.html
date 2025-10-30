@@ -343,46 +343,29 @@
             width: 90%;
             margin: 0 auto;
             font-size: 1rem;
-        }
-
-        .article{
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
+            text-align: center;
         }
 
         .main-container ul {
             list-style: none;
-            padding-left: 0;
-            margin-left: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .article{
+            width: 100%;
         }
 
-        .title {
-        position: relative;
-        display: inline-flex;  
-        align-items: center;
-        gap: .5em;   
-        font-size: 24px;             
+        .pics{
+            display: inline-block; 
+            width: auto;         
+            width: 100%;       
+            height: auto;
         }
 
-        .title::before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: #55a308;
-        flex: 0 0 auto;
+        .pics-border{
+            border: solid 1px #aaa;
         }
 
-        .bar{
-            border: 1px solid black;
-            width: 20px;
-            margin: 0 20px;
-        }
-
-        .author{
-            font-size: 16px;
-        }
 
         .not-link{
             color: #aaa;
@@ -390,6 +373,14 @@
 
         .toroku-kikan{
             margin:0 auto;
+        }
+
+        h2{
+            font-size: 40px;
+        }
+
+        .uketori{
+            padding-top: 120px;
         }
 
         .u-lg{ font-size: 1.25em; }
@@ -467,12 +458,12 @@
                 </section>
     
                 <section class="middle-bar" aria-label="コースヘッダー">
-                    <div class="middle-bar-icon"><img src="./images/NPTS.webp" alt="NPTS" height="50"/></div>
+                    <div class="middle-bar-icon"><img src="./images/how-to-buy.webp" alt="注文方法" height="50"/></div>
                     <div class="middle-bar-contents">
                         <div class="course-meta">
                             <div class="course-meta1">
-                                <p class="middle-bar-course-number">DOUJIN25</p>
-                                <p class="middle-bar-course-name">技術同人誌『フランクフルト』</p>
+                                <p class="middle-bar-course-number">HOWTOBUY</p>
+                                <p class="middle-bar-course-name">注文方法</p>
                             </div>
                             <div class="course-meta2">
                                 <p class="course-meta2-movie">
@@ -502,85 +493,37 @@
                     </div>
                 </section>
             <section class="main-container">
-                <h2>技術同人誌</h2>
-                <p>雙峰祭でフランクフルト（食品）と並行してメンバー有志による技術同人誌『フランクフルト』を発売するんぽ～<br>店頭では物理本とPDF版を両方頒布して、別途<a href="https://x.com/comictsukuba">コミックつくば！</a>さんでも物理本を頒布するんぽ～</p>
-                <h2>タイトル一覧（暫定）</h2>
+                <h2>注文方法</h2>
                 <ul>
                     <li class="article">
-                        <div class="title">
-                            自作 JVM ことはじめ
-                        </div>
-                        <div class="bar"></div>
-                        <div class="author">
-                            chururi (<a href="https://x.com/chururi_">Twitter</a>, <a href="https://itsu.dev">個人サイト</a>)
-                        </div>
+                        <img class="pics" src="./images/howto1.webp" alt="①店頭のQRを読んで注文ページに飛ぶんぽ！" />
                     </li>
                     <li class="article">
-                        <div class="title">
-                            システムプログラミング入門のための自作スレッドスケジューラー
-                        </div>
-                        <div class="bar"></div>
-                        <div class="author">
-                            lapla (<a href="https://twitter.lapla.dev">Twitter</a>, <a href="https://lapla.dev/about">個人サイト</a>)
-                        </div>
+                        <img class="pics" src="./images/howto2.webp" alt="②買いたい商品を選ぶんぽ！" />
                     </li>
                     <li class="article">
-                        <div class="title">
-                            HTML+CSSだけでJANバーコード生成
-                        </div>
-                        <div class="bar"></div>
-                        <div class="author">
-                            Ryoga (<a href="https://x.com/Ryoga_exe">Twitter</a>)
-                        </div>
-                    </li>
-                    <li class="article">
-                        <div class="title">
-                            君も最強のパッケージマネージャ、Cargoにコントリビュートしよう！
-                        </div>
-                        <div class="bar"></div>
-                        <div class="author">
-                            motorailgun (<a href="https://x.com/motorailgun_s">Twitter</a>)
-                        </div>
-                    </li>
-                    <li class="article">
-                        <div class="title">
-                            HCIカーソル探訪
-                        </div>
-                        <div class="bar"></div>
-                        <div class="author">
-                            いなにわうどん (me[at]yokohama.dev, <a href="https://x.com/kyoto_inaniwa">Twitter</a>)
-                        </div>
-                    </li>
-                    <li class="article">
-                        <div class="title">
-                            OTから実装するドキュメント共同編集アプリ
-                        </div>
-                        <div class="bar"></div>
-                        <div class="author">
-                            asuto (<a href="https://asuto.dev/about">個人サイト</a>)
-                        </div>
-                    </li>
-                    <li class="article">
-                        <div class="title">
-                            驚額の殿堂3(スリー)のWebサイトを作った話
-                        </div>
-                        <div class="bar"></div>
-                        <div class="author">
-                            浅香ひなた (<a href="https://x.com/akira__okumura">Twitter</a>)
-                        </div>
-                    </li>
-                    <li class="article">
-                        <div class="title">
-                            フランクフルトの美味しい食べかた
-                        </div>
-                        <div class="bar"></div>
-                        <div class="author">
-                            驚額の殿堂3（スリー）一同
-                        </div>
+                        <img class="pics" src="./images/howto3.webp" alt="③『注文を送信』を押して注文を確定するんぽ！" />
                     </li>
                 </ul>
-                <h2>値段（暫定、雙峰祭特別価格）</h2>
-                <p>物理本：300円（店頭で購入すると無料でPDF版も付くんぽ）<br>PDF版のみ：300円（店頭販売のみ）</p>
+                
+                <h2 class="uketori">商品の受け取り</h2>
+                <ul>
+                    <li class="article">
+                        <img class="pics pics-border" src="./images/waiting1.webp" alt="①店頭のQRを読んで注文ページに飛ぶんぽ！" />
+                    </li>
+                    <li class="article">
+                        <img class="pics pics-border" src="./images/waiting2.webp" alt="①店頭のQRを読んで注文ページに飛ぶんぽ！" />
+                    </li>
+                    <li class="article">
+                        <img class="pics pics-border" src="./images/waiting3.webp" alt="①店頭のQRを読んで注文ページに飛ぶんぽ！" />
+                    </li>
+                    <li class="article">
+                        <img class="pics pics-border" src="./images/waiting4.webp" alt="①店頭のQRを読んで注文ページに飛ぶんぽ！" />
+                    </li>
+                    <li class="article">
+                        <img class="pics pics-border" src="./images/waiting5.webp" alt="①店頭のQRを読んで注文ページに飛ぶんぽ！" />
+                    </li>
+                </ul>
             </section>
         </main>
     <!-- コンテンツここまで -->
