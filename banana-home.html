@@ -632,7 +632,7 @@
         }
 
         .works-link{
-            color:#2449a8; 
+            /*color:#2449a8; */
             text-decoration: none;
             height: 34px;
             display: flex;
@@ -1107,7 +1107,7 @@
                             </div>
 
                         </div>
-                        <a href="./supporters.html" class="works-link">＞ 太客一覧</a>
+                        <p href="./supporters.html" class="works-link">＞ 太客一覧</p>
                       </div>
                       <div class="works-box">
                         <div class="works-box-menu">
@@ -1224,7 +1224,7 @@
 
             document.getElementById("modal-title").textContent = title;
             document.getElementById("modal-date").textContent = date;
-            document.getElementById("modal-body").innerHTML = content; // ← ここ！
+            document.getElementById("modal-body").innerHTML = content;
             document.getElementById("news-modal").style.display = "flex";
         });
         });
@@ -1250,10 +1250,7 @@
         try {
             const res = await fetch("https://sora.workers.yukari.uk/api/v0/futokyakus");
             const data = await res.json();
-
-            const sorted = data.futokyakus.sort((a, b) => b.tipAmount - a.tipAmount);
-
-            const top3 = sorted.slice(0, 3);
+            const top3 = data.slice(0, 3);
 
             const rankEls = [
             document.querySelector(".hutokyaku-name.no1"),

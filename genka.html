@@ -340,10 +340,31 @@
         }
 
         .genka-container {
+            width: 100%;
             text-align: center;
+            margin: 0 auto;
         }
-        .genka-container p {
-            font-size: 64px;
+        .genka-container h2 {
+            font-size: 32px;
+            margin:20px auto 0 auto;
+        }
+
+        .genka-container h3 {
+            font-size: 24px;
+        }
+
+        p{
+            font-size: 16px;
+            margin: 10px auto;
+        }
+
+        .hiyou{
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #7cc41a;        
+            padding: 20px 40px;
+            display: inline-block; 
         }
 
         .not-link{
@@ -362,6 +383,35 @@
         .course-meta2-movie{margin:0 auto;}
         .course-meta2-desc-text{margin: 0 auto}
         .text-gray{color:#ddd; font-size: 1.25em;}
+
+
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 6px 8px;
+        }
+
+        th {
+            border-bottom: double 3px #ccc;
+        }
+
+        .total td {
+            border-top: solid 1px #cccc;
+        }
+
+        .note {
+            font-size: 16px;
+            width: fit-content;    
+            margin: 10px auto;     
+            text-align: left;       
+            padding-left: 20px;      
+        }
 
         @media screen and (max-width: 768px) {
             .main{
@@ -464,7 +514,110 @@
                     </div>
                 </section>
             <div class="genka-container">
-                <p>現在、算出中んぽ!!</p>
+                <h2>原価</h2>
+                <p class="hiyou">フランクフルト 1 本あたりの費用：125.1 円（83.4%）</p>
+                
+                <h3>材料費</h3>
+
+                <table>
+                    <tbody>
+                      <tr>
+                        <th>品目</th>
+                        <th>単価</th>
+                        <th>数量</th>
+                        <th>小計</th>
+                        <th>1 本あたりの価格</th>
+                      </tr>
+                      <tr>
+                        <td>フランクフルト</td>
+                        <td>862 円／18 本</td>
+                        <td>84 袋</td>
+                        <td>72,408 円</td>
+                        <td>47.9 円</td>
+                      </tr>
+                      <tr>
+                        <td>ケチャップ</td>
+                        <td>289 円／ℓ</td>
+                        <td>12 本</td>
+                        <td>3,468 円</td>
+                        <td>2.9 円</td>
+                      </tr>
+                      <tr>
+                        <td>コップ</td>
+                        <td>127 円／50個</td>
+                        <td>30 セット</td>
+                        <td>3,810 円</td>
+                        <td>2.5 円</td>
+                      </tr>
+                      <tr class="total">
+                        <td>合計</td>
+                        <td>–</td>
+                        <td>–</td>
+                        <td>79,686 円</td>
+                        <td>53.3 円</td>
+                      </tr>
+                    </tbody>
+                </table>
+
+                <h3>固定費</h3>
+                <table>
+                    <tr>
+                      <th>品目</th>
+                      <th>単価</th>
+                      <th>数量</th>
+                      <th>小計</th>
+                      <th>1 本あたりの値段</th>
+                    </tr>
+                    <tr><td>保菌検査代（検便代）</td><td>550 円</td><td>14 人</td><td>7,700 円</td><td>5.1 円</td></tr>
+                    <tr><td>鉄板焼き LPG（送料込）</td><td>11,770 円</td><td>1</td><td>11,770 円</td><td>7.8 円</td></tr>
+                    <tr><td>5kg ガスボンベ</td><td>3,500 円</td><td>3</td><td>10,500 円</td><td>7 円</td></tr>
+                    <tr><td>調理を行う企画に対する集金</td><td>5,000 円</td><td>1</td><td>5,000 円</td><td>3.3 円</td></tr>
+                    <tr><td>ラミネート</td><td>50 円</td><td>5</td><td>250 円</td><td>0.2 円</td></tr>
+                    <tr><td>ラミネート</td><td>50 円</td><td>3</td><td>150 円</td><td>0.1 円</td></tr>
+                    <tr><td>ハンドソープ</td><td>712 円</td><td>1</td><td>712 円</td><td>0.5 円</td></tr>
+                    <tr><td>温度計</td><td>550 円</td><td>1</td><td>550 円</td><td>0.4 円</td></tr>
+                    <tr><td>蓋つきポリバケツ</td><td>1,298 円</td><td>1</td><td>1,298 円</td><td>0.9 円</td></tr>
+                    <tr><td>ウエットティッシュ</td><td>220 円</td><td>1</td><td>220 円</td><td>0.1 円</td></tr>
+                    <tr><td>スポンジ</td><td>110 円</td><td>2</td><td>220 円</td><td>0.1 円</td></tr>
+                    <tr><td>たわし</td><td>110 円</td><td>1</td><td>110 円</td><td>0.1 円</td></tr>
+                    <tr><td>調理用はさみ</td><td>110 円</td><td>1</td><td>110 円</td><td>0.1 円</td></tr>
+                    <tr><td>トング</td><td>110 円</td><td>6</td><td>660 円</td><td>0.4 円</td></tr>
+                    <tr><td>アルミホイル</td><td>539 円</td><td>1</td><td>539 円</td><td>0.4 円</td></tr>
+                    <tr><td>コンロガード</td><td>330 円</td><td>3</td><td>990 円</td><td>0.7 円</td></tr>
+                    <tr><td>PPロープ</td><td>110 円</td><td>1</td><td>110 円</td><td>0.1 円</td></tr>
+                    <tr><td>タオル</td><td>1,097 円</td><td>1</td><td>1,097 円</td><td>0.7 円</td></tr>
+                    <tr><td>スケッチブック</td><td>330 円</td><td>1</td><td>330 円</td><td>0.2 円</td></tr>
+                    <tr><td>養生テープ</td><td>250 円</td><td>1</td><td>250 円</td><td>0.2 円</td></tr>
+                    <tr><td>テンキー</td><td>330 円</td><td>1</td><td>330 円</td><td>0.2 円</td></tr>
+                    <tr><td>両替手数料</td><td>1,980 円</td><td>1</td><td>1,980 円</td><td>1.3 円</td></tr>
+                    <tr><td>鍋掴み</td><td>110 円</td><td>2</td><td>220 円</td><td>0.1 円</td></tr>
+                    <tr><td>ポリタンク20L</td><td>1,020 円</td><td>2</td><td>2,040 円</td><td>1.4 円</td></tr>
+                    <tr><td>サラダ油1Ｌ</td><td>278 円</td><td>1</td><td>278 円</td><td>0.2 円</td></tr>
+                    <tr><td>ラップ</td><td>110 円</td><td>1</td><td>110 円</td><td>0.1 円</td></tr>
+                    <tr><td>軍手</td><td>196 円</td><td>1</td><td>196 円</td><td>0.1 円</td></tr>
+                    <tr><td>レジャーシート</td><td>110 円</td><td>1</td><td>110 円</td><td>0.1 円</td></tr>
+                    <tr><td>エプロン三角巾</td><td>1,870 円</td><td>1</td><td>1,870 円</td><td>1.2 円</td></tr>
+                    <tr><td>バルーン</td><td>110 円</td><td>4</td><td>440 円</td><td>0.3 円</td></tr>
+                    <tr><td>ふきん</td><td>110 円</td><td>2</td><td>220 円</td><td>0.1 円</td></tr>
+                    <tr><td>その他雑貨</td><td>1,052 円</td><td>1</td><td>1,052 円</td><td>0.7 円</td></tr>
+                    <tr><td>ガソリン代</td><td>2,000 円</td><td>1</td><td>2,000 円</td><td>1.3 円</td></tr>
+                    <tr><td>同人誌経費</td><td>12,070 円</td><td>1</td><td>12,070 円</td><td>8.0 円</td></tr>
+                    <tr><td>飲料仕入れ</td><td>42,198 円</td><td>1</td><td>42,198 円</td><td>28.1 円</td></tr>
+                    <tr class="total">
+                        <td>合計</td>
+                        <td>–</td>
+                        <td>–</td>
+                        <td>107,680 円</td>
+                        <td>71.8 円</td>
+                    </tr>
+                  </table>
+
+                  <h3>備考</h3>
+                  <ul class="note">
+                    <li>「1 本あたりの価格」は 1,500 本で計算した場合の金額です．</li>
+                    <li>2025 年 11 月 1 日現在の価格です．材料費および固定費は変動する場合があります．</li>
+                    <li>丸め誤差のため合計と原価が一致しない場合があります．</li>
+                  </ul>
             </div>
         </main>
     <!-- コンテンツここまで -->
