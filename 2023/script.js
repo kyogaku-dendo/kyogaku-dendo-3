@@ -38,7 +38,7 @@ const displayNavigation = () => {
   <li><a href="genka.html">原価</a></li>
   <li><a href="poster.html">ポスター</a></li>
   <li><a href="realtime/index.html">現在の売上</a></li>
-  <li><a href="maps">地図</a></li>
+  <li>地図</li>
   <hr />
   <li><a href="kiyaku.html">んぽからのお願い</a></li>
   <li><a href="heya.html">んぽたその部屋</a></li>
