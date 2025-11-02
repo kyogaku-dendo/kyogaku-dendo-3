@@ -1251,7 +1251,8 @@
         try {
             const res = await fetch("https://sora.workers.yukari.uk/api/v0/futokyakus");
             const data = await res.json();
-            const top3 = data.slice(0, 3);
+            const list = Array.isArray(data) ? data : data.futokyakus || [];
+            const top3 = list.slice(0, 3);
 
             const rankEls = [
             document.querySelector(".hutokyaku-name.no1"),
