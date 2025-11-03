@@ -23,8 +23,8 @@ jobs:
               fi
              done
              
-             # それ以外のhtml, css, jsファイルをコピーする
-             for ext in html css js; do
+             # それ以外のhtml, css, js, pdfファイルをコピーする
+             for ext in html css js pdf; do
               find . -name "*.$ext" -not -path "./node_modules/*" -not -path "./dist/*" -not -path "./2023/*" -not -path "./2024/*" -exec cp --parents {} dist/ \;
              done
              
